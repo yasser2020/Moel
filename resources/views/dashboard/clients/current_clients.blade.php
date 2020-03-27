@@ -11,6 +11,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-left">
               <li class="breadcrumb-item ">لوحة التحكم</li>
+              <li class="breadcrumb-item">الارشيف</li>
               <li class="breadcrumb-item active">العملاء</li>
             </ol>
           </div><!-- /.col -->
@@ -19,18 +20,11 @@
     </div>
 <div class="container-fluid">
     <div class="card card-primary">
-      <div class="card-header">
-        <div style="display:flex">
-          <div class="col-md-4">
-            @if (auth()->user()->hasPermission('create_projects'))
-            <a href="{{route('dashboard.clients.create')}}"><i class="btn btn-success fa fa-plus"></i></a>
-            @endif 
-          </div>
-        <div class="col-md-4 justify-content-center">
-        <h3 class="card-title text-center">العملاء</h3>
+        <div class="card-header">
+
+          <h3 class="card-title text-center">العملاء</h3>
+       
       </div>
-      </div>
-    </div>
       </div>
       <section class="content">
         <div class="row">
@@ -61,7 +55,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">طلبات تسجيل العملاء</h3>  
+                <h3 class="card-title">بيانات  العملاء</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -73,7 +67,7 @@
                     <th>الجوال </th>
                     <th>الايميل </th>
                     <th>العنوان</th>
-                    <th>تفعيل الاشتراك </th>
+                    <th>عدد الخدمات</th>
                     <th>خيارات</th>
                   </tr>
                   </thead>
@@ -86,7 +80,8 @@
                     <td>{{$client->phone_num}}</td>
                     <td>{{$client->email}}</td>
                     <td>{{$client->address}}</td>
-                    <td>
+                    <td>{{$client->services_count}}</td>
+                    {{-- <td>
                       <form action="{{route('dashboard.clients.update',$client->id)}}" style="display:inline-block" method="post">
                         @csrf
                         @method('put')
@@ -95,10 +90,10 @@
                         </button>
 
                       </form>
-                    </td>
+                    </td> --}}
                     <td>
                     @if (auth()->user()->hasPermission('read_clients'))
-                    <a href="{{route('dashboard.clients.show',$client->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"> المزيد</i></a>
+                    <a href="{{route('dashboard.currentClientsData',$client->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"> المزيد</i></a>
                      @else
                      <a href="" disabled="" class="btn btn-warning btn-sm"><i class="fa fa-edit"> المزيد</i></a>
  

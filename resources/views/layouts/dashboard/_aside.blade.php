@@ -44,10 +44,38 @@
               <li class="nav-item">
                <a href="{{route('dashboard.clients.index')}}" class="nav-link">
                     <i class="nav-icon fa fa-users"></i>
-                    <p>العملاء</p>
+                    <p>العملاء الجدد</p>
                   </a>
               </li>
           @endif
+        
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-pie-chart"></i>
+              <p>
+              الارشيف
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              @if (auth()->user()->hasPermission('read_clients'))
+              <li class="nav-item">
+                <a href="{{route('dashboard.currentClients')}}" class="nav-link">
+                  <i class="fa fa-users"></i>
+                  <p>العملاء</p>
+                </a>
+              </li>
+              @endif
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>الاعضاء</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-pie-chart"></i>

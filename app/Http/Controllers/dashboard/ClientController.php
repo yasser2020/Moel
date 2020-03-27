@@ -4,6 +4,10 @@ namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Client;
+use App\Service;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class ClientController extends Controller
 {
@@ -12,9 +16,24 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        dd('Hello Client');
+        $clients=Client::whenSearch($request->search)->where('done',0)->orWhere('subscription',0)->paginate(5);
+        return view('dashboard.clients.index',compact('clients'));
+    }
+
+    public function currentClients(Request $request)
+    {
+        $clients=Client::whenSearch($request->search)->where('done',1)->withCount('services')->paginate(5);
+        return view('dashboard.clients.current_clients',compact('clients'));
+    }
+
+    public function currentClientsData($id)
+    {
+        $id=(int)$id;
+        $client=Client::findOrFail($id);
+        $services=Service::where('client_id',$client->id)->get();
+        return view('dashboard.clients.show_current_client',compact('client','services'));
     }
 
     /**
@@ -24,8 +43,17 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.clients.create_client');
     }
+
+    // public function doSubscription($num)
+    // {
+        
+    //     dd($client);
+    //     session()->flash('success','تم  تفعيل اشتراك العميل بنجاح');
+    //     return redirect()->back();
+    // }
+
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +63,31 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required|min:10',
+            'sex'=>'required',
+            'nationality'=>'required',
+            'city'=>'required',
+            'address'=>'required',
+            'phone_num'=>'required',
+            'whats_num'=>'required',
+            'email'=>'required|unique:clients,email',
+            'how_know_us'=>'required',
+            'kind_of_service'=>'required',
+            'service'=>'required',
+        ]);
+
+        $request_client_data=$request->except(['kind_of_service','service']);
+        $client=Client::create($request_client_data);
+        $request_service_data=$request->only(['kind_of_service','service']);
+        $request_service_data['client_id']=$client->id;
+        $service=Service::create($request_service_data);
+        
+        session()->flash('success','تم اضافة العميل بنجاح');
+        return redirect()->route('dashboard.clients.index');
+
+
+
     }
 
     /**
@@ -44,9 +96,10 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Client $client)
     {
-        //
+        $service=$client->services()->first();
+        return view('dashboard.clients.show_client',compact('client','service'));
     }
 
     /**
@@ -67,9 +120,20 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Client $client)
     {
-        //
+        $client->done="1";
+        $client->update();
+        session()->flash('success','تم  تفعيل اشتراك العميل بنجاح');
+        //add client to users table to login using email and phone_num as password
+        $user= User::create([
+            'name' => $client->name,
+            'email' => $client->email,
+            'password' => Hash::make($client->phone_num),
+        ]);
+        $user->attachRole('user');
+        
+          return redirect()->back();
     }
 
     /**
@@ -78,8 +142,10 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Client $client)
     {
-        //
+      $client->delete();
+      session()->flash('success','تم  حذف بيانات العميل بنجاح');
+      return redirect()->back();  
     }
 }
