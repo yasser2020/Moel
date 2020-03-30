@@ -18,6 +18,7 @@ class CreateServicesTable extends Migration
             $table->string('kind_of_service');
             $table->text('service');
             $table->unsignedBigInteger('client_id');
+            $table->integer('done')->default(0);
             $table->timestamps();
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
         });

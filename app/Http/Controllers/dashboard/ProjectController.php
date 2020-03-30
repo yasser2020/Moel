@@ -17,7 +17,7 @@ class ProjectController extends Controller
     
     public function index()
     {
-        $projects=Project::paginate(5);
+        $projects=Project::latest()->paginate(5);
         return view('dashboard.projects.index',compact('projects'));
     }//end of index
 

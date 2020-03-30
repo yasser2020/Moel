@@ -9,6 +9,7 @@ use App\Service;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 
+
 class ClientController extends Controller
 {
     /**
@@ -79,9 +80,18 @@ class ClientController extends Controller
 
         $request_client_data=$request->except(['kind_of_service','service']);
         $client=Client::create($request_client_data);
+        $client_name=$request->how_know_us;
+        $client_obj=Client::whereName($client_name)->first();
+        if($client_obj!=null)
+        {
+            $client_obj->clients_record= ($client_obj->clients_record)+1;
+            $client_obj->update();
+        }
+       
         $request_service_data=$request->only(['kind_of_service','service']);
         $request_service_data['client_id']=$client->id;
         $service=Service::create($request_service_data);
+
         
         session()->flash('success','تم اضافة العميل بنجاح');
         return redirect()->route('dashboard.clients.index');
@@ -130,8 +140,9 @@ class ClientController extends Controller
             'name' => $client->name,
             'email' => $client->email,
             'password' => Hash::make($client->phone_num),
+            'user_type'=>'client',
         ]);
-        $user->attachRole('user');
+        $user->attachRole('client');
         
           return redirect()->back();
     }
@@ -144,6 +155,9 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
+        $user=User::where('email',($client->email));
+        $user->delete();
+        $freelancer->delete();
       $client->delete();
       session()->flash('success','تم  حذف بيانات العميل بنجاح');
       return redirect()->back();  

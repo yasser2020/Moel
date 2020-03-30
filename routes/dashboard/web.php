@@ -16,5 +16,13 @@ group(function(){
     Route::get('/currentClientData/{slug}','ClientController@currentClientsData')->name('currentClientsData');
  //Freelancer Route
  Route::resource('freelancers','FreelancerController');
+ Route::get('/show_image/{slug}/{type}','FreelancerController@showPage')->name('showImage');
+ Route::get('/currentFreelancers','FreelancerController@currentFreelancers')->name('currentFreelancers');
+ //Services Route
+ Route::resource('services','FreelanceServiceController');
+ //ClientServices Route
+ Route::resource('clientServices','ClientServicesController');
+//  Route::get('/clientServices','ClientServicesController@index')->name('clientServices');
+//  Route::post('/update/Services/{$slug}','ClientServicesController@doneService')->name('doneClientServices');
     
 });

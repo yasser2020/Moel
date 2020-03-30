@@ -271,3 +271,13 @@ ul {
 .datepicker-plot-area {
     font-family: 'Vazir', sans-serif;
 }
+.mt-10{
+    margin-top: 10px;
+}
+.mb-10{
+    margin-bottom: 10px;
+}
+a.disabled{
+    pointer-events: none;
+    cursor: default;
+}

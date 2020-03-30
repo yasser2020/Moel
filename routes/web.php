@@ -11,10 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','WelcomeController@index');
 
 Auth::routes();
-
+Route::get('index','WelcomeController@index')->name('index');
+Route::post('client/save','ClientController@storeClient')->name('storeClient');
+Route::post('freelancer/save','ClientController@storeFreelancer')->name('storeFreelancer');
+Route::get('about','WelcomeController@about')->name('whoUs');
+//  Route::get('/{slug}','WelcomeController@success')->name('success');
+Route::get('client','WelcomeController@createClient')->name('createClient');
+Route::get('freelancer','WelcomeController@createFreelancer')->name('createFreelancer');
+Route::get('freelancerPage','WelcomeController@freelancerInto')->name('freelancerPage');
 Route::get('/home', 'HomeController@index')->name('home');

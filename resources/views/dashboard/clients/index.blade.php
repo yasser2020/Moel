@@ -22,7 +22,7 @@
       <div class="card-header">
         <div style="display:flex">
           <div class="col-md-4">
-            @if (auth()->user()->hasPermission('create_projects'))
+            @if (auth()->user()->hasPermission('create_clients'))
             <a href="{{route('dashboard.clients.create')}}"><i class="btn btn-success fa fa-plus"></i></a>
             @endif 
           </div>

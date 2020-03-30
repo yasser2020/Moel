@@ -24,7 +24,7 @@
           <h3 class="card-title text-center">بيانات العميل</h3>
         </div>
 
-        <form role="form" action="{{route('dashboard.clients.store')}}" method="post" enctype="multipart/form-data">
+        <form role="form">
             @csrf 
             @include('dashboard.partials._errors')
           <div class="card-body">
@@ -100,7 +100,7 @@
 
           <div class="card-footer">
             {{-- <button type="submit" class="btn btn-primary">تقدم وحفظ</button> --}}
-            <a href="{{route('dashboard.clients.index')}}" class="btn btn-primary btn-sm">الرجوع</a>
+            <a href="{{URL::back()}}" class="btn btn-primary btn-sm">الرجوع</a>
           </div>
         </form>
       

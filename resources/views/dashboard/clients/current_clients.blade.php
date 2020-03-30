@@ -67,7 +67,8 @@
                     <th>الجوال </th>
                     <th>الايميل </th>
                     <th>العنوان</th>
-                    <th>عدد الخدمات</th>
+                    <th> الخدمات</th>
+                    <th>تسجيل العملاء </th>
                     <th>خيارات</th>
                   </tr>
                   </thead>
@@ -81,6 +82,7 @@
                     <td>{{$client->email}}</td>
                     <td>{{$client->address}}</td>
                     <td>{{$client->services_count}}</td>
+                    <td>{{$client->clients_record}}</td>
                     {{-- <td>
                       <form action="{{route('dashboard.clients.update',$client->id)}}" style="display:inline-block" method="post">
                         @csrf

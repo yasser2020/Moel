@@ -5,11 +5,16 @@ return [
         'super_admin' => [
             'projects' => 'c,r,u,d',
             'clients' => 'c,r,u,d',
+            'freelancers' => 'c,r,u,d',
+            'freelancerServices' => 'c,r,u,d',
+            'clientServices' => 'c,r,u,d',
             'users' => 'c,r,u,d',
             
         ],
         'administrator' => [],
         'user' => [],
+        'client'=>[],
+        'freelancer'=>[],
     ],
     'permission_structure' => [],
     'permissions_map' => [

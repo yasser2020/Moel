@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use App\Servcie;
 
 class Client extends Model
 {
+   
     protected $fillable=['name','sex','nationality','city','address','phone_num','whats_num','email',
     'how_know_us','subscription'];
     

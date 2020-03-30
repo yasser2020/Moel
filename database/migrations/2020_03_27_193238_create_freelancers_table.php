@@ -27,19 +27,19 @@ class CreateFreelancersTable extends Migration
             $table->string('whats_num');
             $table->string('email');
             $table->string('qualification');
-            $table->integer('graduation_year');
+            $table->string('graduation_year');
             $table->string('grade');
             $table->string('faculty');
             $table->string('experince');
-            $table->string('hopies');
+            $table->string('hopies')->nullable();
             $table->string('work_place');
-            $table->string('work_nature');
-            $table->string('work_time');
+            $table->string('work_nature')->nullable();
+            $table->string('work_time')->nullable();
             $table->string('cv');
             $table->string('graduation_certificate');
-            $table->string('confirmation_career');
-            $table->string('picture');
-            $table->string('privews_work');
+            $table->string('confirmation_career')->nullable();
+            $table->string('picture')->nullable();
+            $table->text('privews_work')->nullable();
             $table->string('show_work');
             $table->string('how_know_us');
             $table->integer('done')->default(0); //1 for become memeber 0 for not

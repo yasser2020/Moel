@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Client;
 
 class Service extends Model
 {
@@ -11,4 +12,9 @@ class Service extends Model
     {
         return $this->belongsTo(Client::class,'clients');
     }
+     public function getClientName($client_id)
+     {
+         $client=Client::whereId($client_id)->first();
+         return $client->name;
+     }
 }

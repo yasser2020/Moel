@@ -48,6 +48,53 @@
                   </a>
               </li>
           @endif
+          @if (auth()->user()->hasPermission('read_freelancers'))
+          <li class="nav-item">
+           <a href="{{route('dashboard.freelancers.index')}}" class="nav-link">
+                <i class="nav-icon fa fa-users"></i>
+                <p>Freelancers الجدد</p>
+              </a>
+          </li>
+      @endif
+     
+      <li class="nav-item has-treeview">
+        <a href="#" class="nav-link">
+          <i class="nav-icon fa fa-pie-chart"></i>
+          <p>
+          الخدمات
+            <i class="right fa fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          @if (auth()->user()->hasPermission('read_clientServices'))
+          <li class="nav-item">
+          <a href="{{route('dashboard.clientServices.index')}}" class="nav-link">
+              <i class="fa fa-circle-o nav-icon"></i>
+              <p> الخدمات الواردة</p>
+            </a>
+          </li>
+          @endif
+          @if (auth()->user()->hasPermission('create_freelancerServices'))
+          <li class="nav-item">
+          <a href="{{route('dashboard.services.create')}}" class="nav-link">
+              <i class="fa fa-circle-o nav-icon"></i>
+              <p>ادخال الخدمات</p>
+            </a>
+          </li>
+          @endif
+          @if (auth()->user()->hasPermission('read_freelancerServices'))
+          <li class="nav-item">
+          <a href="{{route('dashboard.services.index')}}" class="nav-link">
+              <i class="fa fa-circle-o nav-icon"></i>
+              <p>عرض الخدمات</p>
+            </a>
+          </li>
+          @endif
+          
+        </ul>
+      </li>
+
+
         
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -67,8 +114,8 @@
               </li>
               @endif
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
+              <a href="{{route('dashboard.currentFreelancers')}}" class="nav-link">
+                  <i class="fa fa-users"></i>
                   <p>الاعضاء</p>
                 </a>
               </li>
@@ -76,7 +123,7 @@
             </ul>
           </li>
 
-            <li class="nav-item has-treeview">
+            {{-- <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-pie-chart"></i>
                 <p>
@@ -104,7 +151,7 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> --}}
             
            
         </nav>

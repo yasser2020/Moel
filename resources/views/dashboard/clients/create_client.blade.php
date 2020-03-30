@@ -18,6 +18,7 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
+    
 <div class="container-fluid">
     <div class="card card-primary">
         <div class="card-header">
@@ -31,59 +32,59 @@
           <div class="card-body">
             <div class="form-group">
               <label for="name">الاســــــــم</label>
-              <input type="text" name="name"  class="form-control" placeholder="الاسم رباعى">
+            <input type="text" name="name" required value="{{old('name')}}" class="form-control" placeholder="الاسم رباعى">
             </div>
             <div class="form-group">
               <label for="name">الجنس</label>
             <div class="form-check">
-              <input type="radio" name="sex" class="form-check-input" value="m">
+              <input type="radio" name="sex"  required class="form-check-input" value="m">
               <label class="form-check-label" for="exampleCheck1"  style="margin-left:100px">ذكر</label>
-              <input type="radio" name="sex" class="form-check-input" value="f">
+              <input type="radio" name="sex" required class="form-check-input" value="f">
               <label class="form-check-label" for="exampleCheck1"  style="margin-left:100px">انثى</label>
             </div>
             <div class="form-group">
               <label for="name">الجنسية</label>
-              <input type="text" name="nationality" class="form-control" placeholder="الجنسية">
+              <input type="text" name="nationality" required value="{{old('nationality')}}" class="form-control" placeholder="الجنسية">
             </div>
             <div class="form-group">
               <label for="name">المدينة</label>
-              <input type="text" name="city" class="form-control" placeholder="المدينة">
+              <input type="text" name="city" required value="{{old('city')}}" class="form-control" placeholder="المدينة">
             </div>
             <div class="form-group">
               <label for="name">العنوان</label>
-              <input type="text" name="address" class="form-control" placeholder="العنوان">
+              <input type="text" name="address" required  value="{{old('address')}}" class="form-control" placeholder="العنوان">
             </div>
             <div class="form-group">
               <label for="name">رقم الجوال</label>
-              <input type="text" name="phone_num" class="form-control" placeholder="رقم الجوال">
+              <input type="text" name="phone_num" required value="{{old('phone_num')}}" class="form-control" placeholder="رقم الجوال">
             </div>
             <div class="form-group">
               <label for="name">رقم الواتس</label>
-              <input type="text" name="whats_num" class="form-control" placeholder="رقم الواتس">
+              <input type="text" name="whats_num" required value="{{old('whats_num')}}" class="form-control" placeholder="رقم الواتس">
             </div>
             <div class="form-group">
               <label for="name">الايميل</label>
-              <input type="eamil" name="email" class="form-control" placeholder="الايميل">
+              <input type="eamil" name="email" required value="{{old('email')}}" class="form-control" placeholder="الايميل">
             </div>
             <div class="form-group">
               <label for="name">الجهة التى تعرفت بها علينا او اسم الشخص رباعيا</label>
-              <input type="texthow_know_us" name="how_know_us" class="form-control" placeholder="الجهة التى تعرفت بها علينا او اسم الشخص رباعيا">
+              <input type="texthow_know_us" required value="{{old('how_know_us')}}" name="how_know_us" class="form-control" placeholder="الجهة التى تعرفت بها علينا او اسم الشخص رباعيا">
             </div>
             <div class="form-group">
               <label for="name">نوع الخدمة</label>
             <div class="form-check">
-              <input type="radio" name="kind_of_service" class="form-check-input" value="سكنى">
+              <input type="radio" name="kind_of_service" required class="form-check-input" value="سكنى">
               <label class="form-check-label" for="exampleCheck1"  style="margin-left:100px">سكنى</label>
-              <input type="radio" name="kind_of_service" class="form-check-input" value="تجارى">
-              <label class="form-check-label" for="exampleCheck1"  style="margin-left:100px">تجارى</label>
-              <input type="radio" name="kind_of_service" class="form-check-input" value="مرفق عام">
-              <label class="form-check-label" for="exampleCheck1"  style="margin-left:100px">مرفق عام</label>
+              <input type="radio" name="kind_of_service" required class="form-check-input" value="تجارى">
+              <label class="form-check-label" for="exampleCheck1"   style="margin-left:100px">تجارى</label>
+              <input type="radio" name="kind_of_service" required class="form-check-input" value="مرفق عام">
+              <label class="form-check-label" for="exampleCheck1"   style="margin-left:100px">مرفق عام</label>
             </div>
             </div>
             
             <div class="form-group">
               <label for="exampleInputPassword1">الخدمة</label>
-              <textarea class="form-control" name="service" id="" cols="30" rows="3" placeholder="الخدمة المطلوبة"></textarea>
+              <textarea class="form-control"  required value="{{old('nationality')}}" name="service" id="" cols="30" rows="3" placeholder="الخدمة المطلوبة"></textarea>
             </div>
 
             <div class="form-group">
