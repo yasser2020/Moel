@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $services=FreelanceService::where('accept','0')->first()->get();
+        $services=FreelanceService::where('accept','0')->get();
         return view('home',compact('services'));
     }
 }

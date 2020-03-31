@@ -11,13 +11,13 @@
                                 <li class="nav-item dropdown" style="direction: rtl; width:200px">
                                     <p style="font-weight: bold;font-size: 12pt;color:white;margin-left: 120px">مرحبا بكم</p>
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <p style="font-weight: bold;font-size: 14pt;color: white">  {{auth()->user()->name}}</p>
+                                    <p style="font-weight: bold;font-size: 14pt;color: #17a2b8">  {{auth()->user()->name}}</p>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         @if (auth()->user()->hasRole('super_admin')||auth()->user()->hasRole('administrator'))
                                     <a class="dropdown-item" href="{{route('dashboard.welcome')}}"> <i class="fa fa-tachometer"></i> لوحة التحكم </a>
                                       @endif
-                                      <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();
+                                      <a  style="color: #17a2b8" class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();
                                       document.getElementById('logout-form').submit();">
                                        <i class="fa fa-sign-out"></i>
                                       خروج
