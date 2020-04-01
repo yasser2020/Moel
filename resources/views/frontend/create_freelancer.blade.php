@@ -33,9 +33,9 @@
                             </div>
                             <div class="input_field mb_15 d-flex" style="background: black">
                               <label for="" class="mt-10" style="font-weight: bold;color: white;margin-right: 10px;margin-left:10px;font-size: 12pt">الحالة الاجتماعية</label>
-                              <input type="radio" name="marital_status" required  style="width:20px;" value="سكنى" >
+                              <input type="radio" name="marital_status" required  style="width:20px;" value="married" >
                               <label for="" class="mt-10"  style="font-weight: bold;color: white;margin-right: 10px;margin-left: 10px;font-size: 12pt">متزوج</label>
-                              <input type="radio" class="mr-10" name="marital_status" required style="width:20px;" value="تجارى" >
+                              <input type="radio" class="mr-10" name="marital_status" required style="width:20px;" value="single" >
                               <label for="" class="mt-10" style="font-weight: bold;color: white;margin-right: 10px;margin-left: 10px;font-size: 12pt">اعزب</label>
                               {{-- <input type="radio" class="mr-10" name="marital_status" required style="width:20px;" value="مرفق عام" >
                               <label for="" class="mt-10"  style="font-weight: bold;color: white;margin-right: 10px;margin-left: 10px;font-size: 12pt">ارمل</label> --}}

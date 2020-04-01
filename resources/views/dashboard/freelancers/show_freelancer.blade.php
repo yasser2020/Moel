@@ -60,9 +60,9 @@
             <div class="form-group">
               <label for="name">الجنس</label>
             <div class="form-check">
-            <input type="radio" name="sex" readonly class="form-check-input" {{$freelancer->sex=='m'?'checked':''}} value="m">
+            <input type="radio" name="sex" disabled class="form-check-input" {{$freelancer->sex=='m'?'checked':''}} value="m">
               <label class="form-check-label" for="exampleCheck1"  style="margin-left:100px">ذكر</label>
-              <input type="radio" name="sex" readonly class="form-check-input" {{$freelancer->sex=='f'?'checked':''}} value="f">
+              <input type="radio" name="sex" disabled class="form-check-input" {{$freelancer->sex=='f'?'checked':''}} value="f">
               <label class="form-check-label" for="exampleCheck1"  style="margin-left:100px">انثى</label>
             </div>
             <div class="form-group">
@@ -72,11 +72,11 @@
               <div class="form-group">
                 <label for="name">الحالة الاجتماعية</label>
               <div class="form-check">
-                <input type="radio" name="marital_status" readonly  {{$freelancer->marital_status=='married'?'checked':''}} class="form-check-input" value="married">
+                <input type="radio" name="marital_status" disabled readonly single  {{$freelancer->marital_status=='married'?'checked':''}} class="form-check-input" value="married">
                 <label class="form-check-label" for="exampleCheck1"  style="margin-left:100px">متزوج</label>
-                <input type="radio" name="marital_status" readonly {{$freelancer->marital_status=='single'?'checked':''}} class="form-check-input" value="single">
+                <input type="radio" name="marital_status" disabled readonly {{$freelancer->marital_status=='single'?'checked':''}} class="form-check-input" value="single">
                 <label class="form-check-label" for="exampleCheck1"   style="margin-left:100px">اعزب</label>
-                <input type="radio" name="marital_status" readonly {{$freelancer->marital_status=='widow'?'checked':''}} class="form-check-input" value="widow">
+                <input type="radio" name="marital_status" disabled readonly {{$freelancer->marital_status=='widow'?'checked':''}} class="form-check-input" value="widow">
                 <label class="form-check-label" for="exampleCheck1"  style="margin-left:100px">ارمل</label>
               </div>
               <div class="form-group">

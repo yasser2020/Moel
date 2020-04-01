@@ -85,6 +85,10 @@ class ClientController extends Controller
         if($client_obj!=null)
         {
             $client_obj->clients_record= ($client_obj->clients_record)+1;
+            if($client_boj->clients_record==10)
+            {
+                $client_boj->clients_record=0;
+            }
             $client_obj->update();
         }
        

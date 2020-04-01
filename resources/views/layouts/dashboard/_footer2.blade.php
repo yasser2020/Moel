@@ -103,6 +103,27 @@
           n.show();
      });
 
+
+      //delele service
+  $(document).on('click','.delete_service',function(e){
+       e.preventDefault();
+       var that=$(this);
+          var n=new Noty({
+        text:"سيم حذف الخدمة",
+        killer:true,
+        buttons:[
+          Noty.button('نعم','btn btn-danger ml-100',function(){
+           that.closest('form').submit();
+          }),
+          Noty.button('لا','btn btn-success',function(){
+                n.close();
+         }),
+  
+        ],
+          });
+          n.show();
+     });
+
   
     });
     </script>

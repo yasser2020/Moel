@@ -60,24 +60,41 @@
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover" >
                   <thead>
-                  <tr>
+                  <tr style="font-size: 10pt">
                     <th>#</th>
-                    <th>اسم المتقدم</th>
+                    <th>اسم العضو</th>
                     <th>الجوال </th>
                     <th>الايميل </th>
-                    <th>العنوان</th>
+                    {{-- <th>العنوان</th> --}}
+                    <th>الخدمة التى انجازها</th>
+                    <th>رقم الخدمة</th>
+                    <th> فريق العمل</th>
                     <th>خيارات</th>
                   </tr>
                   </thead>
                   <tbody>
                   
                     @foreach ($freelancers as $index=>$freelancer)
-                    <tr>   
+                    <tr style="font-size: 9pt">   
                     <td>{{$index+1}}</td>
                     <td>{{$freelancer->name}}</td>
                     <td>{{$freelancer->phone_num}}</td>
                     <td>{{$freelancer->email}}</td>
-                    <td>{{$freelancer->address}}</td>
+                    @if ($freelancer->getService($freelancer->email)!=null)
+                    <td>{{$freelancer->getService($freelancer->email)->service_description}}</td>
+                    <td>{{$freelancer->getService($freelancer->email)->service_num}}</td>
+                    <?php
+                       $members=$freelancer->getTeamMemeber($freelancer->getService($freelancer->email)->team_memeber);
+                    ?>
+                    <td>{{is_array($members)?implode(array_filter($members),' - '):$members}}</td>
+                    @else
+                     <td></td>
+                     <td></td>
+                     <td></td>
+                        
+                    @endif
+                   
+                    
                    
                     <td>
                     @if (auth()->user()->hasPermission('read_freelancers'))

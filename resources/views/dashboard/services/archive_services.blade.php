@@ -20,16 +20,9 @@
 <div class="container-fluid">
     <div class="card card-primary">
         <div class="card-header">
-          <div style="display:flex">
-            <div class="col-md-4">
-              @if (auth()->user()->hasPermission('create_freelancerServices'))
-              <a href="{{route('dashboard.services.create')}}"><i class="btn btn-success fa fa-plus"></i></a>
-              @endif 
-            </div>
-          <div class="col-md-4 justify-content-center">
+          
           <h3 class="card-title text-center">الخدمات</h3>
-        </div>
-        </div>
+      
       </div>
       </div>
       <section class="content">
@@ -74,7 +67,7 @@
                     <th>الموقع </th>
                     <th>الوصف </th>
                     <th>القبول</th>
-                    <th>خيارات</th>
+                    {{-- <th>خيارات</th> --}}
                   </tr>
                   </thead>
                   <tbody>
@@ -92,31 +85,30 @@
                     <td style="color:red"> لم يتم القبول</td>
                     @endif
                   
-                    <td>
+                    <!-- <td>
                     @if (auth()->user()->hasPermission('update_freelancerServices'))
                     <a href="{{route('dashboard.services.edit',$service->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"> تعديل</i></a>
                     @if ($service->accept==1)
-                    <a href="{{route('dashboard.serviceDetailes',$service->id)}}" class="btn btn-info btn-sm"><i class="fa fa-plus"> تفاصيل</i></a>
-                    <a href="{{route('dashboard.reactiveService',$service->id)}}" class="btn btn-success btn-sm"><i class="fa fa-check"> تفعيل</i></a>
+                    <a href="" class="btn btn-success btn-sm"><i class="fa fa-check"> تفعيل</i></a>
                     
                     @endif
                      @else
-                     <a href="" disabled="" class="btn btn-warning btn-sm"><i class="fa fa-edit"> تعديل</i></a>
+                     <a href=""  class="btn btn-warning btn-sm"><i class="fa fa-edit"> تعديل</i></a>
  
                     @endif
                         
-                    <form action="{{route('dashboard.putInArachive',$service->id)}}" style="display:inline-block" method="post">
+                        <form action="" style="display:inline-block" method="post">
                        @csrf
-                       @method('put')
+                       @method('delete')
                        @if (auth()->user()->hasPermission('delete_freelancerServices'))
-                       <button type="submit" class="btn btn-danger btn-sm delete_service"><i class="fa fa-trash"> حذف</i></button>
+                       <button type="submit" disabled class="btn btn-danger btn-sm delete_service"><i class="fa fa-trash"> حذف</i></button>
                            @else
                            <button type="submit" disabled class="btn btn-danger btn-sm delete_service"><i class="fa fa-trash"> Delete</i></button>
  
                        @endif
                        </form>
                      
-                        </td>
+                        </td> -->
                       </tr>
                         @endforeach
                      

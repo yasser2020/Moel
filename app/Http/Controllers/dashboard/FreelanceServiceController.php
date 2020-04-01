@@ -14,8 +14,21 @@ class FreelanceServiceController extends Controller
      */
     public function index(Request $request)
     {
-        $services=FreelanceService::whenSearch($request->search)->paginate(5);
+        $services=FreelanceService::whenSearch($request->search)->where('done',0)->paginate(5);
         return view('dashboard.services.index',compact('services'));
+    }
+
+    public function archive(Request $request)
+    {
+        $services=FreelanceService::whenSearch($request->search)->where('done',1)->paginate(5);
+        return view('dashboard.services.archive_services',compact('services'));
+    }
+
+    public function serviceDetail($id)
+    {
+        $id=(int)$id;
+        $service=FreelanceService::findOrFail($id);
+        return view('dashboard.services.service_detailes',compact('service'));
     }
 
     /**
@@ -68,9 +81,11 @@ class FreelanceServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(FreelanceService $service)
     {
-        //
+        
+     return view('dashboard.services.edit_service',compact('service'));
+        
     }
 
     /**
@@ -80,19 +95,49 @@ class FreelanceServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,FreelanceService $service)
     {
-        //
+         // Validation
+         $request->validate([
+            'service_num'=>'required|unique:freelance_services,service_num,'.$service->id,
+            'city'=>'required',
+            'location'=>'required',
+            'service_description'=>'required',
+        ]);
+        $service->update($request->all());
+        session()->flash('success','تم تعديل البيانات بنجاح');
+        return redirect()->route('dashboard.services.index');
+        
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+      public function putInArachive($id)
+      {
+          $id=(int)$id;
+          $service=FreelanceService::FindOrFail($id);
+          $service->done=1;
+          $service->update();
+          session()->flash('success','تم  ارشفة الخدمة  بنجاح');
+          return redirect()->route('dashboard.services.index');
+      }
+
+      public function reactiveService($id)
+      {
+          $id=(int)$id;
+          $service= $service=FreelanceService::FindOrFail($id);
+          $service->accept=0;
+          $service->work_alone=0;
+          $service->accept_team=0;
+          $service->client_accept_id=0;
+          $service->team_memeber=null;
+          $service->done=0;
+          $service->freelancer_email=null;
+          $service->update();
+          session()->flash('success','تم  اعادة تفعيل الخدمة  بنجاح');
+          return redirect()->route('dashboard.services.index');
+      }
+
+      
+
+
+    
 }

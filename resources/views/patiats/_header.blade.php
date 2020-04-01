@@ -13,6 +13,20 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <p style="font-weight: bold;font-size: 14pt;color: #17a2b8">  {{auth()->user()->name}}</p>
                                     </a>
+                                    @if (auth()->user()->hasRole('client'))
+                                    <?php
+                                     $count=Auth::user()->getclientServiceCount(Auth::user()->email);
+
+                                    ?>
+                                    <p style="color: white">
+                                        @for ($i = 0; $i < $count; $i++)
+                                        <i class="fa fa-star"></i>
+                                        @endfor                 
+                                    </p>
+                                    @endif
+                                    @if (auth()->user()->hasRole('freelancer'))
+                                    <p style="font-weight: bold;font-size: 15pt;color: white;background: black;text-align: center">اللهم أرزقني وأرزق مني </p>
+                                    @endif
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         @if (auth()->user()->hasRole('super_admin')||auth()->user()->hasRole('administrator'))
                                     <a class="dropdown-item" href="{{route('dashboard.welcome')}}"> <i class="fa fa-tachometer"></i> لوحة التحكم </a>

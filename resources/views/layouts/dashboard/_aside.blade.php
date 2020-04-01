@@ -113,15 +113,28 @@
                 </a>
               </li>
               @endif
+              @if (auth()->user()->hasPermission('read_freelancers'))
               <li class="nav-item">
               <a href="{{route('dashboard.currentFreelancers')}}" class="nav-link">
                   <i class="fa fa-users"></i>
                   <p>الاعضاء</p>
                 </a>
               </li>
+              @endif
+
+              @if (auth()->user()->hasPermission('read_freelancerServices'))
+              <li class="nav-item">
+              <a href="{{route('dashboard.arachiveService')}}" class="nav-link">
+                    <i class="nav-icon fa fa-users"></i>
+                    <p>الخدمات</p>
+                  </a>
+              </li>
+          @endif
               
             </ul>
           </li>
+
+         
 
             {{-- <li class="nav-item has-treeview">
               <a href="#" class="nav-link">

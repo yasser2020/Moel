@@ -82,7 +82,7 @@
                     <td>{{$index+1}}</td>
                     <td>{{$service->kind_of_service}}</td>
                     <td>{{Str::limit($service->service,50)}}</td>
-                    <td>{{$service->getClientName(1)}}</td>
+                    <td>{{$service->getClientName($service->client_id)}}</td>
                     <td>
                     @if (auth()->user()->hasPermission('update_freelancerServices'))
                     <a href="{{route('dashboard.currentClientsData',$service->client_id)}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"> المزيد</i></a>

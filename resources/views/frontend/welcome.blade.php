@@ -53,3 +53,5 @@
    
     <!-- footer_start  -->
    @include('patiats._footer')
+
+ 

@@ -147,6 +147,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         }
 
     });
+    $.ajaxSetup({
+      headers:{
+        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+      }
+    });
+
+    @stack('script');
+
+
 </script>
 </body>
 

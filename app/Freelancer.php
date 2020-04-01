@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Notifications\Notifiable;
+use App\FreelanceService;
 class Freelancer extends Model
 {
     
@@ -32,6 +33,29 @@ class Freelancer extends Model
     public function getImage($path)
     {
         return Storage::url('privews_works/'.$path);
+    }
+
+    public function getService($email)
+    {
+        $service=FreelanceService::where('freelancer_email',$email)->where('done',1)->first();
+            return $service;
+    }
+
+    public function getTeamMemeber($team_member)
+    {
+        $members=[];
+        foreach ($team_member as $index => $email_member) {
+            
+            array_push($members,$this->getMember($email_member));
+        }
+
+        return $members;
+    }
+
+    public function getMember($email)
+    {
+        $member= $this->where('email',$email)->first();
+        return $member->name;
     }
 
 

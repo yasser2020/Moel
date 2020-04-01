@@ -100,7 +100,7 @@
 
           <div class="card-footer">
             {{-- <button type="submit" class="btn btn-primary">تقدم وحفظ</button> --}}
-            <a href="{{URL::back()}}" class="btn btn-primary btn-sm">الرجوع</a>
+            <a href="{{URL::previous()}}" class="btn btn-primary btn-sm">الرجوع</a>
           </div>
         </form>
       

@@ -159,6 +159,11 @@ class FreelancerController extends Controller
     {
        return view('dashboard.freelancers.show_freelancer',compact('freelancer'));
     }
+    public function showFreelancerService($email)
+    {
+        $freelancer=Freelancer::where('email',$email)->first();
+       return view('dashboard.freelancers.show_freelancer',compact('freelancer'));
+    }
 
     public function showPage($id,$type)
     {
