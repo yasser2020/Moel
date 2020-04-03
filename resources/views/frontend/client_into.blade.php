@@ -13,15 +13,11 @@
                     <div class="row align-items-center justify-content-center">
                         <div class="col-xl-9 col-md-9 col-md-12">
                             <div class="slider_text text-center" style="margin-bottom: 190px" >
-                                {{-- <h3>مؤسسة مؤئل للتصميم والتنسيق والعمارة</h3> --}}
-                                <p>
-                                    المعنيين :
-                                    (استشاريين – مهندسين – فنيين – منفذين – مصممين - حرفيين – عمالة حرة – شركات – مؤسسات – موهوبين) 
-                                    في كافة المجالات (معماري – انشائي – ديكور – تنسيق - جرافيك - تخطيط – حدائق – زراعة - كهرباء – ميكانيكا – مرافق)                                       
-                                </p>
-                                <hr class="my-4" style="background: white;width: 400px">
+                                
+                              
 
                                 <h5 style="font-weight: bold;font-size: 16pt;color: white">المميزات </h5>
+                                <hr class="my-4" style="background: white;width: 400px">
                                  
                                 <ol style="color: yellow;font-weight: bold; font-size: 14pt;direction: rtl;">
                                     <li  style="list-style: square">تنويع وتمكين الفرص للباحثين عن العمل</li>
@@ -51,12 +47,10 @@
                                     <h5 style="font-weight: bold;font-size: 16pt;color: white;">اوفق</h5>
                                 </div>
                                 <div class="d-flex justify-content-center">
-                                <form  action="{{route('createFreelancer')}}">
-                                    
-                                    <button type="submit" disabled  class="boxed-btn3 go" style="margin-right: 10px">للتقديم</button>
+                                <form action="{{route('createClient')}}" method="get">
+                                    <button type="submit"  disabled class="boxed-btn3 go" style="margin-right: 10px">للتقديم</button>
                                 </form>
-                                {{-- <button type="submit" id="gogo"  class="boxed-btn3 " style="margin-right: 10px">للتقديم</button> --}}
-
+                                
                                 {{-- <a href="{{route('createFreelancer')}}" class="boxed-btn3">للتقديم</a> --}}
                                 <a href="{{URL::previous()}}" class="boxed-btn3">الرجوع</a>
                             </div>
@@ -70,14 +64,13 @@
     </div>
     @push('script')
         $(document).ready(function(){
-             
-         
+       
             $(document).on('click','#agree',function(e){
               
-             
               if($(this).is(':checked'))
               {
-                $('.go').prop('disabled',false);
+                
+                $('.go').prop("disabled",false);
                  
               }
               else

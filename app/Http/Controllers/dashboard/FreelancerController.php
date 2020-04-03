@@ -63,7 +63,7 @@ class FreelancerController extends Controller
             'graduation_year'=>'required',
             'grade'=>'required',
             'faculty'=>'required',
-            'experince'=>'required',
+            'experince'=>'sometimes',
             // 'hopies'=>'required',
             'cv'=>'required',
             'confirmation_career'=>'sometimes',
@@ -161,7 +161,7 @@ class FreelancerController extends Controller
     }
     public function showFreelancerService($email)
     {
-        $freelancer=Freelancer::where('email',$email)->first();
+        $freelancer=Freelancer::where('identifcation_no',$email)->first();
        return view('dashboard.freelancers.show_freelancer',compact('freelancer'));
     }
 
@@ -219,7 +219,7 @@ class FreelancerController extends Controller
         //add client to users table to login using email and phone_num as password
         $user= User::create([
             'name' => $freelancer->name,
-            'email' => $freelancer->email,
+            'email' => $freelancer->identifcation_no,
             'password' => Hash::make($freelancer->phone_num),
             'user_type'=>'freelancer',
         ]);

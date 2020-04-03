@@ -25,7 +25,7 @@ class FreelanceService extends Model
 
     public function freelancerMemeber($email)
     {
-        $freelancer=Freelancer::where('email',$email)->first();
+        $freelancer=Freelancer::where('identifcation_no',$email)->first();
         return $freelancer;
     }
 

@@ -80,11 +80,11 @@
                     <td>{{$freelancer->name}}</td>
                     <td>{{$freelancer->phone_num}}</td>
                     <td>{{$freelancer->email}}</td>
-                    @if ($freelancer->getService($freelancer->email)!=null)
-                    <td>{{$freelancer->getService($freelancer->email)->service_description}}</td>
-                    <td>{{$freelancer->getService($freelancer->email)->service_num}}</td>
+                    @if ($freelancer->getService($freelancer->identifcation_no)!=null)
+                    <td>{{$freelancer->getService($freelancer->identifcation_no)->service_description}}</td>
+                    <td>{{$freelancer->getService($freelancer->identifcation_no)->service_num}}</td>
                     <?php
-                       $members=$freelancer->getTeamMemeber($freelancer->getService($freelancer->email)->team_memeber);
+                       $members=$freelancer->getTeamMemeber($freelancer->getService($freelancer->identifcation_no)->team_memeber);
                     ?>
                     <td>{{is_array($members)?implode(array_filter($members),' - '):$members}}</td>
                     @else

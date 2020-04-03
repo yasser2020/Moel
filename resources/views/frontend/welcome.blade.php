@@ -36,7 +36,7 @@
                                 </ul>
                                  @endif
                                 @else
-                                <a href="{{route('createClient')}}" class="boxed-btn3 btn btn-primary mb-50" style="font-weight: bold;font-size: 15pt;background:#FFD600">خدمة العملاء</a>
+                                <a href="{{route('clientPage')}}" class="boxed-btn3 btn btn-primary mb-50" style="font-weight: bold;font-size: 15pt;background:#FFD600">خدمة العملاء</a>
                                 <a href="{{route('freelancerPage')}}" class="boxed-btn3 btn btn-primary  mb-50" style="font-weight: bold;font-size: 15pt;background:#FFD600"> للتقديم (freelance) </a>
                                 @endauth
                                 <h4 style="font-weight: bold;color: white;font-size: 15pt">تقدم مؤسسة موئل منظومة متكاملة من الخدمات، وتأخذ على عاتقها الاحترافية والابتكار في جميع مشاريعها من خلال مجموعة من المهندسين والفنيين المتخصصين والمصممين، إضافة للنظام الإداري المتابع لكافة تفاصيل المشروعات التي تم وسيتم تنفيذها، وخدمات الضمان على مدار العام. </h4>

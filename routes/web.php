@@ -25,6 +25,7 @@ Route::get('about','WelcomeController@about')->name('whoUs');
 Route::get('client','WelcomeController@createClient')->name('createClient');
 Route::get('freelancer','WelcomeController@createFreelancer')->name('createFreelancer');
 Route::get('freelancerPage','WelcomeController@freelancerInto')->name('freelancerPage');
+Route::get('clientPage','WelcomeController@clientInto')->name('clientPage');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::put('/accept/{id}/{type}', 'HomeController@acceptService')->name('accept');
 Route::get('jointoTeam/{id}','HomeController@jointoTeam')->name('jointoTeam');

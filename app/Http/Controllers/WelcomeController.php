@@ -28,6 +28,10 @@ class WelcomeController extends Controller
     {
         return view('frontend.freelancer_into');
     }
+    public function clientInto()
+    {
+        return view('frontend.client_into');
+    }
     public function createFreelancer()
     {
         return view('frontend.create_freelancer');

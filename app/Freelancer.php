@@ -54,7 +54,7 @@ class Freelancer extends Model
 
     public function getMember($email)
     {
-        $member= $this->where('email',$email)->first();
+        $member= $this->where('identifcation_no',$email)->first();
         return $member->name;
     }
 

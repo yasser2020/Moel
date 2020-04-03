@@ -16,7 +16,7 @@
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="input_field mb_15">
-                                    <input type="email" name="email" required placeholder="الايميل" style="font-weight: bold">
+                                    <input type="text" name="email" required placeholder="الايميل او رقم الهوية" style="font-weight: bold">
                                 </div>
                                 <div class="input_field mb_15">
                                     <input type="password" name="password" required placeholder="الباسورد" style="font-weight: bold">
