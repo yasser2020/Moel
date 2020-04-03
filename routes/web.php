@@ -11,8 +11,11 @@
 |
 */
 
-Route::get('/','WelcomeController@index');
+Route::get('/command',function(){
+Artisan::call('storage:link');
+});
 
+Route::get('/','WelcomeController@index');
 Auth::routes();
 Route::get('index','WelcomeController@index')->name('index');
 Route::post('client/save','ClientController@storeClient')->name('storeClient');
