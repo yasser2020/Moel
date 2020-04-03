@@ -12,14 +12,14 @@
                 <div class="container">
                     <div class="row align-items-center justify-content-center">
                         <div class="col-xl-9 col-md-9 col-md-12">
-                            <div class="slider_text text-center">
+                            <div class="slider_text text-center" style="margin-bottom: 190px" >
                                 <h3>مؤسسة مؤئل للتصميم والتنسيق والعمارة</h3>
                                 <p>
                                     المعنيين :
                                     (استشاريين – مهندسين – فنيين – منفذين – مصممين - حرفيين – عمالة حرة – شركات – مؤسسات – موهوبين) 
                                     في كافة المجالات (معماري – انشائي – ديكور – تنسيق - جرافيك - تخطيط – حدائق – زراعة - كهرباء – ميكانيكا – مرافق)                                       
                                 </p>
-                                <ul style="color: #17a2b8;font-weight: bold">
+                                <ul style="color: yellow;font-weight: bold">
                                     <li>المميزات</li>
                                     <li>تنويع وتمكين الفرص للباحثين عن العمل.</li>
                                     <li>يساهم في توفير دخل اضافي وزيادة دخل الافراد</li>
