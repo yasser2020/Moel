@@ -16,7 +16,7 @@
                                 
                               
 
-                                <h5 style="font-weight: bold;font-size: 16pt;color: white">المميزات </h5>
+                                <h3>المميزات </h3>
                                 <hr class="my-4" style="background: white;width: 400px">
                                  
                                 <ol style="color: yellow;font-weight: bold; font-size: 14pt;direction: rtl;">
