@@ -1,14 +1,14 @@
 @include('patiats._head')   
 @include('patiats._header')
 
-<div class="Reservation_area">
+<div class="Reservation_area" style="background-image: linear-gradient(#D57EEB,#FCCB90);">
    
     <div class="container p-0" style="direction: rtl">
         
         <div class="row no-gutters justify-content-center">
            
             <div class="col-lg-12">
-                <div class="book_Form">
+                <div class="book_Form" style="background-image: linear-gradient(#D57EEB,#FCCB90);">
                     <h3 class="text-center"> استمارة تسجيل البيانات </h3>
                     
                     <div class="row ">
@@ -21,7 +21,7 @@
                                 <input type="text"  name="name" required value="{{old('name')}}" placeholder=" الاسم رباعى" style="font-weight: bold">
                                 </div>
 
-                                <div class="input_field mb_15 d-flex" style="background: black">
+                                <div class="input_field mb_15 d-flex">
                                   <label for="" class="mt-10" style="font-weight: bold;color: white;margin-right: 10px;margin-left:10px;font-size: 12pt">الجنس</label>
                                   <input type="radio" name="sex" required style="width:20px;" value="m" >
                                   <label for="" class="mt-10"  style="font-weight: bold;color: white;margin-right: 10px;margin-left: 10px;font-size: 12pt">ذكر</label>
@@ -31,7 +31,7 @@
                               <div class="input_field mb_15">
                               <input type="text" required name="identifcation_no" class="form-control" value="{{old('identifcation_no')}}" placeholder="رقم الهوية او الاقامة">
                             </div>
-                            <div class="input_field mb_15 d-flex" style="background: black">
+                            <div class="input_field mb_15 d-flex" >
                               <label for="" class="mt-10" style="font-weight: bold;color: white;margin-right: 10px;margin-left:10px;font-size: 12pt">الحالة الاجتماعية</label>
                               <input type="radio" name="marital_status" required  style="width:20px;" value="married" >
                               <label for="" class="mt-10"  style="font-weight: bold;color: white;margin-right: 10px;margin-left: 10px;font-size: 12pt">متزوج</label>
@@ -137,8 +137,8 @@
                     </div>
                   </div>
 
-                  <div class="input_field mb_15 d-flex" style="background: black">
-                    <label for="" class="mt-10" style="font-weight: bold;color: white;margin-right: 10px;margin-left:10px;font-size: 12pt">ارغب بعرض اسمى واعمالى فى الموقع</label>
+                  <div class="input_field mb_15 d-flex">
+                    <label for="" class="mt-10" style="font-weight: bold;color: white;margin-right: 10px;margin-left:10px;font-size: 12pt;font-weight: bold">ارغب بعرض اسمى واعمالى فى الموقع</label>
                     <input type="radio" name="show_work" required  style="width:20px;" value="yes" >
                     <label for="" class="mt-10"  style="font-weight: bold;color: white;margin-right: 10px;margin-left: 10px;font-size: 12pt">ارغب</label>
                     <input type="radio" class="mr-10" name="show_work" required style="width:20px;" value="no" >

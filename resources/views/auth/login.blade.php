@@ -1,14 +1,14 @@
 @include('patiats._head')   
 @include('patiats._header')
 
-<div class="Reservation_area">
+<div class="Reservation_area" style="background-image: linear-gradient(#D57EEB,#FCCB90);">
    
     <div class="container p-0" style="direction: rtl">
         
         <div class="row no-gutters justify-content-center">
            
             <div class="col-lg-6">
-                <div class="book_Form">
+                <div class="book_Form" style="background-image: linear-gradient(#D57EEB,#FCCB90);">
                     <h3 class="text-center">تسجيل دخول</h3>
                     
                     <div class="row ">
