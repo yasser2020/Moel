@@ -63,7 +63,7 @@ class FreelancerController extends Controller
             'graduation_year'=>'required',
             'grade'=>'required',
             'faculty'=>'required',
-            'experince'=>'sometimes',
+            // 'experince'=>'sometimes',
             // 'hopies'=>'required',
             'cv'=>'required',
             'confirmation_career'=>'sometimes',

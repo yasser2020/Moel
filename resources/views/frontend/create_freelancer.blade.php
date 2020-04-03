@@ -29,7 +29,7 @@
                                   <label for="" class="mt-10" style="font-weight: bold;color: white;margin-right: 10px;font-size: 12pt">انثى</label>
                               </div>
                               <div class="input_field mb_15">
-                              <input type="text" required name="identifcation_no" class="form-control" value="{{old('identifcation_no')}}" placeholder="رقم الهوية او الاقامة">
+                              <input type="text" required name="identifcation_no" class="form-control" min="10" value="{{old('identifcation_no')}}" placeholder="رقم الهوية او الاقامة">
                             </div>
                             <div class="input_field mb_15 d-flex" >
                               <label for="" class="mt-10" style="font-weight: bold;color: white;margin-right: 10px;margin-left:10px;font-size: 12pt">الحالة الاجتماعية</label>

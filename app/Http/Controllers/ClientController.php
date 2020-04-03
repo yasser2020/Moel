@@ -70,7 +70,7 @@ class ClientController extends Controller
         $request->validate([
             'name'=>'required|min:10',
             'sex'=>'required',
-            'identifcation_no'=>'required',
+            'identifcation_no'=>'required|min:10',
             'marital_status'=>'required',
             'date_of_birth'=>'required',
             'nationality'=>'required',
@@ -83,7 +83,7 @@ class ClientController extends Controller
             'graduation_year'=>'required',
             'grade'=>'required',
             'faculty'=>'required',
-            'experince'=>'required',
+            'experince'=>'sometimes',
             // 'hopies'=>'required',
             'cv'=>'required',
             'confirmation_career'=>'sometimes',
