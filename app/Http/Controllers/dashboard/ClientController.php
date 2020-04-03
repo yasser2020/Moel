@@ -161,8 +161,7 @@ class ClientController extends Controller
     {
         $user=User::where('email',($client->email));
         $user->delete();
-        $freelancer->delete();
-      $client->delete();
+        $client->delete();
       session()->flash('success','تم  حذف بيانات العميل بنجاح');
       return redirect()->back();  
     }

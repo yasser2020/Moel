@@ -32,7 +32,7 @@ class CreateFreelancersTable extends Migration
             $table->string('faculty');
             $table->string('experince');
             $table->string('hopies')->nullable();
-            $table->string('work_place');
+            $table->string('work_place')->nullable();
             $table->string('work_nature')->nullable();
             $table->string('work_time')->nullable();
             $table->string('cv');
