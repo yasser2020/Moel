@@ -43,7 +43,7 @@
             </div>
             <div class="form-group">
                 <label for="name">رقم الهواية/ الاقامة</label>
-                <input type="text" required name="identifcation_no" class="form-control" value="{{old('identifcation_no')}}" placeholder="رقم الهوية او الاقامة">
+                <input type="text" required name="identifcation_no" minlength="10" class="form-control" value="{{old('identifcation_no')}}" placeholder="رقم الهوية او الاقامة">
               </div>
               <div class="form-group">
                 <label for="name">الحالة الاجتماعية</label>
@@ -63,7 +63,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                   </div>
-                  <input type="date" required name="date_of_birth" class="form-control ltr" value="{{old('date_of_birth')}}" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask="">
+                  <input type="date" required name="date_of_birth" class="form-control ltr" value="{{old('date_of_birth')}}">
                 </div>
                 <!-- /.input group -->
               </div>

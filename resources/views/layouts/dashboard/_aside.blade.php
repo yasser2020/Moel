@@ -125,16 +125,28 @@
               @if (auth()->user()->hasPermission('read_freelancerServices'))
               <li class="nav-item">
               <a href="{{route('dashboard.arachiveService')}}" class="nav-link">
-                    <i class="nav-icon fa fa-users"></i>
+                    <i class="nav-icon fa fa-pie-chart"></i>
                     <p>الخدمات</p>
                   </a>
               </li>
           @endif
-              
+          @if (auth()->user()->hasPermission('read_freelancerServices'))
+          <li class="nav-item">
+          <a href="{{route('dashboard.ClientsNotSubscription')}}" class="nav-link">
+                <i class="nav-icon fa fa-users"></i>
+                <p>عملاء غير مشتركين</p>
+              </a>
+          </li>
+          @endif     
             </ul>
           </li>
 
-         
+          <li class="nav-item">
+            <a href="{{route('dashboard.settings.edit',1)}}" class="nav-link">
+                <i class="nav-icon fa fa-tree"></i>
+                <p>الاعدادات</p>
+              </a>
+            </li>
 
             {{-- <li class="nav-item has-treeview">
               <a href="#" class="nav-link">

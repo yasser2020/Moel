@@ -19,7 +19,7 @@ class ClientController extends Controller
      */
     public function index(Request $request)
     {
-        $clients=Client::whenSearch($request->search)->where('done',0)->orWhere('subscription',0)->paginate(5);
+        $clients=Client::whenSearch($request->search)->where('done',0)->where('archive',0)->paginate(5);
         return view('dashboard.clients.index',compact('clients'));
     }
 
@@ -27,6 +27,12 @@ class ClientController extends Controller
     {
         $clients=Client::whenSearch($request->search)->where('done',1)->withCount('services')->paginate(5);
         return view('dashboard.clients.current_clients',compact('clients'));
+    }
+
+    public function ClientsNotSubscription(Request $request)
+    {
+        $clients=Client::whenSearch($request->search)->where('archive',1)->withCount('services')->paginate(5);
+        return view('dashboard.clients.No_current_clients',compact('clients'));
     }
 
     public function currentClientsData($id)
@@ -47,13 +53,16 @@ class ClientController extends Controller
         return view('dashboard.clients.create_client');
     }
 
-    // public function doSubscription($num)
-    // {
-        
-    //     dd($client);
-    //     session()->flash('success','تم  تفعيل اشتراك العميل بنجاح');
-    //     return redirect()->back();
-    // }
+    public function archiveClient($id)
+    {
+       $id=(int)$id;
+       
+       $client=Client::findOrFail($id);
+       $client->archive=1;
+       $client->update();
+        session()->flash('success','تم ارشفة العميل بنجاح');
+        return redirect()->back();
+    }
 
 
     /**
@@ -85,10 +94,6 @@ class ClientController extends Controller
         if($client_obj!=null)
         {
             $client_obj->clients_record= ($client_obj->clients_record)+1;
-            if($client_boj->clients_record==10)
-            {
-                $client_boj->clients_record=0;
-            }
             $client_obj->update();
         }
        

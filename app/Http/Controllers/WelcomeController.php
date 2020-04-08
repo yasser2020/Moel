@@ -7,13 +7,15 @@ use App\Client;
 use App\Service;
 use App\Freelancer;
 use App\Project;
+use App\Settings;
 class WelcomeController extends Controller
 {
     public function index()
     {
         // $freelancer=Freelancer::latest()->first();
         $projects=Project::first();
-        return view('frontend.welcome',compact('projects'));
+        $setting=Settings::findOrFail(1);
+        return view('frontend.welcome',compact('projects','setting'));
     }
    
     public function about()
@@ -22,23 +24,28 @@ class WelcomeController extends Controller
     }
     public function createClient()
     {
-        return view('frontend.create_client');
+        $setting=Settings::findOrFail(1);
+        return view('frontend.create_client',compact('setting'));
     }
     public function freelancerInto()
     {
-        return view('frontend.freelancer_into');
+        $setting=Settings::findOrFail(1);
+        return view('frontend.freelancer_into',compact('setting'));
     }
     public function clientInto()
     {
-        return view('frontend.client_into');
+        $setting=Settings::findOrFail(1);
+        return view('frontend.client_into',compact('setting'));
     }
     public function createFreelancer()
     {
-        return view('frontend.create_freelancer');
+        $setting=Settings::findOrFail(1);
+        return view('frontend.create_freelancer',compact('setting'));
     }
-    public function success($type)
+
+    public function projects()
     {
-        
-        return view('frontend.success_page');
+        $projects=Project::first();
+        return view('frontend.projects',compact('projects'));
     }
 }

@@ -27,6 +27,7 @@ class ClientController extends Controller
         $request_service_data=$request->only(['kind_of_service','service']);
         $client=Client::whereEmail(auth()->user()->email)->first();
         $clienId=$client->id;
+        
         $request_service_data['client_id']=$clienId;
         $service=Service::create($request_service_data);         
         }
@@ -51,10 +52,16 @@ class ClientController extends Controller
         $client=Client::create($request_client_data);
         $client_name=$request->how_know_us;
         $client_obj=Client::whereName($client_name)->first();
+        $freelancer_obj=Freelancer::whereName($client_name)->first();
         if($client_obj!=null)
         {
             $client_obj->clients_record= ($client_obj->clients_record)+1;
             $client_obj->update();
+        }
+        if($freelancer_obj!=null)
+        {
+            $freelancer_obj->clients_record= ($freelancer_obj->clients_record)+1;
+            $freelancer_obj->update();
         }
        
         $request_service_data=$request->only(['kind_of_service','service']);
@@ -72,7 +79,7 @@ class ClientController extends Controller
             'sex'=>'required',
             'identifcation_no'=>'required|min:10',
             'marital_status'=>'required',
-            'date_of_birth'=>'required',
+            'date_of_birth'=>'required|date_format:Y-m-d',
             'nationality'=>'required',
             'city'=>'required',
             'address'=>'required',
@@ -160,6 +167,21 @@ class ClientController extends Controller
               $request_data['privews_work']=$images;
               
           }
+
+          $client_name=$request->how_know_us;
+        $client_obj=Client::whereName($client_name)->first();
+        $freelancer_obj=Freelancer::whereName($client_name)->first();
+        if($client_obj!=null)
+        {
+            $client_obj->clients_record= ($client_obj->clients_record)+1;
+            $client_obj->update();
+        }
+        if($freelancer_obj!=null)
+        {
+            $freelancer_obj->clients_record= ($freelancer_obj->clients_record)+1;
+            $freelancer_obj->update();
+        }
+        
 
          Freelancer::create($request_data);
          session()->flash('success','تم اضافة البيانات بنجاح');

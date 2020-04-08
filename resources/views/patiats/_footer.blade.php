@@ -1,3 +1,7 @@
+<?php
+use App\Settings;
+   $setting=Settings::findOrFail(1);
+?>
 <footer class="footer">
     <div class="footer_top" style="padding-top: 5px;padding-bottom: 0px;">
         {{-- <div class="container">
@@ -78,16 +82,17 @@
             </div>
         </div>
     </div> --}}
+    <div class="container-fluid">
     <div class="copy-right_text">
         <div class="container">
             <div class="footer_border"></div>
             <div class="row">
-                <div class="col-xl-12">
+                <div class="col-md-12">
                     <p class="text-center">للتواصل معنا</p>
                     <div class="justify-content-center d-flex">
-                        <p style="padding: 10px"><i class="fa fa-phone"></i> 01116302064</p>
-                        <p style="padding: 10px"><i class="fa fa-mobile"></i> 01116302064</p>
-                        <p style="padding: 10px"><i class="fa fa-google"></i> yezzat2020@gmail.com</p>
+                        <p style="padding: 10px"><i class="fa fa-phone"></i> {{$setting->phone_num}}</p>
+                        <p style="padding: 10px"><i class="fa fa-mobile"></i> {{$setting->whats_num}}</p>
+                        <p style="padding: 10px"><i class="fa fa-google"></i> {{$setting->email}}</p>
                     </div>
                     <p class="copy_right text-center">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -97,6 +102,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </footer>
 <!-- footer_end  -->

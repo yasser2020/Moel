@@ -4,11 +4,12 @@
     <!-- jQuery UI 1.11.4 -->
     {{-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> --}}
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>
+    {{-- <script>
       $.widget.bridge('uibutton', $.ui.button)
-    </script>
+    </script> --}}
     <!-- Bootstrap 4 -->
     <script src="{{asset('dashboard_files/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('dashboard_files/plugins/datatables/jquery.dataTables.js')}}"></script>
     <!-- Morris.js charts -->
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script> --}}
     <script src="{{asset('dashboard_files/plugins/morris/morris.min.js')}}"></script>
@@ -36,7 +37,36 @@
     {{-- <script src="{{asset('dashboard_files/js/pages/dashboard.js')}}"></script> --}}
     <!-- AdminLTE for demo purposes -->
     {{-- <script src="{{asset('dashboard_files/js/demo.js')}}"></script> --}}
+   
+    <script>
+      $(function () {
+        $("#example1").DataTable({
+            "language": {
+                "paginate": {
+                    "next": "",
+                    "previous" : ""
+                }
+            },
+            "info" : false,
+        });
+        $('#example2').DataTable({
+            "language": {
+                "paginate": {
+                    "next": "",
+                    "previous" : ""
+                }
+            },
+          "info" : false,
+          "paging": false,
+          "lengthChange": false,
+          "searching": false,
+          "ordering": true,
+          "autoWidth": false
+        });
+      });
+    </script>
     
+
     <script>
       $.ajaxSetup({
         headers:{

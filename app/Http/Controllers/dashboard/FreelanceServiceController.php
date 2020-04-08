@@ -115,6 +115,10 @@ class FreelanceServiceController extends Controller
           $id=(int)$id;
           $service=FreelanceService::FindOrFail($id);
           $service->done=1;
+          if($service->work_alone==1)
+          {
+              $service->team_memeber=null;
+          }
           $service->update();
           session()->flash('success','تم  ارشفة الخدمة  بنجاح');
           return redirect()->route('dashboard.services.index');
@@ -127,14 +131,16 @@ class FreelanceServiceController extends Controller
           $service->accept=0;
           $service->work_alone=0;
           $service->accept_team=0;
-          $service->client_accept_id=0;
-          $service->team_memeber=null;
+        //   $service->client_accept_id=0;
+        //   $service->team_memeber=null;
           $service->done=0;
           $service->freelancer_email=null;
           $service->update();
           session()->flash('success','تم  اعادة تفعيل الخدمة  بنجاح');
           return redirect()->route('dashboard.services.index');
       }
+
+    
 
       
 

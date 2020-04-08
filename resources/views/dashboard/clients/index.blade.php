@@ -99,10 +99,15 @@
                     <td>
                     @if (auth()->user()->hasPermission('read_clients'))
                     <a href="{{route('dashboard.clients.show',$client->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"> المزيد</i></a>
+                    @if($client->subscription==0)
+                    <a href="{{route('dashboard.archiveClients',$client->id)}}" class="btn btn-success btn-sm"><i class="fa fa-check"> ارشفة</i></a>
+                     @endif
                      @else
                      <a href="" disabled="" class="btn btn-warning btn-sm"><i class="fa fa-edit"> المزيد</i></a>
  
                     @endif
+
+
                         
                     <form action="{{route('dashboard.clients.destroy',$client->id)}}" style="display:inline-block" method="post">
                        @csrf

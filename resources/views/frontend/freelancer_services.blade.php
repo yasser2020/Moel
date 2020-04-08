@@ -7,10 +7,11 @@
 <section class="content" style="direction: rtl">
     @if ($services->count() >0)
     <div class="row">
-      <div class="col-md-12">
-        <div class="card">
+     
+        <div class="card container-fluid">
           <!-- /.card-header -->
-          <div class="card-body ">
+          <div class="col-md-12">
+          <div class="card-body justify-content-center">
             <table id="example2" class="table table-bordered table-hover" >
               <thead>
               <tr>

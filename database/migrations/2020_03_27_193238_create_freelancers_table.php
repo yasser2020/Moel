@@ -42,6 +42,7 @@ class CreateFreelancersTable extends Migration
             $table->text('privews_work')->nullable();
             $table->string('show_work');
             $table->string('how_know_us');
+            $table->integer('clients_record')->default(0);
             $table->integer('done')->default(0); //1 for become memeber 0 for not
             $table->timestamps();
         });

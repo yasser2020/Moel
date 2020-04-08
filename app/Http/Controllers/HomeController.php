@@ -32,6 +32,7 @@ class HomeController extends Controller
         if($type=="only")
         {
             $service->work_alone=1;
+            
         }
         else
         {

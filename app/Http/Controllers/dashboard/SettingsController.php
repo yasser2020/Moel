@@ -4,19 +4,17 @@ namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Service;
-
-class ClientServicesController extends Controller
+use App\Settings;
+class SettingsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $services=Service::latest()->where('done',0);
-        return view('dashboard.services.client_services',compact('services'));
+        //
     }
 
     /**
@@ -24,20 +22,30 @@ class ClientServicesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function archive(Request $request)
-    // {
-    //     $services=FreelanceService::whenSearch($request->search)->where('done',1)->paginate(5);
-    //     return view('dashboard.services.archive_services',compact('services'));
-    // }
+    public function create()
+    {
+        return view('dashboard.settings.create_settings');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Settings $setting)
     {
-        //
+        $request->validate([
+            'phone_num'=>'required',
+            'whats_num'=>'required',
+            'email'=>'required',
+            'termsandconditions'=>'required'
+        ]);
+        $setting::create($request->all());
+        session()->flash('success','تم الحفظ  بنجاح');
+        return redirect()->back();
+
+
     }
 
     /**
@@ -59,7 +67,8 @@ class ClientServicesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $setting=Settings::findorFail(1);
+        return view('dashboard.settings.edit_settings',compact('setting'));
     }
 
     /**
@@ -69,15 +78,19 @@ class ClientServicesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request,Settings $setting)
     {
-        
-        $id=(int)$id;
-        $service=Service::findOrFail($id);
-        $service->done=1;
-        $service->update();
-        session()->flash('success','تم  ارشفة الخدمة بنجاح');
-        return redirect()->back();
+        $request->validate([
+            'phone_num'=>'required',
+            'whats_num'=>'required',
+            'email'=>'required',
+            'termsandconditions'=>'required'
+        ]);
+
+        $setting->update($request->all());
+        session()->flash('success','تم الحفظ  بنجاح');
+        return redirect()->route('dashboard.welcome');
+
     }
 
     /**

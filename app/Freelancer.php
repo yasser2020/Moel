@@ -25,14 +25,14 @@ class Freelancer extends Model
 
     public function getPicturePathAttribute()
     {
-        return Storage::url('images/'.$this->picture);
+        return Storage::url('app/public/images/'.$this->picture);
     }
 
     
 
     public function getImage($path)
     {
-        return Storage::url('privews_works/'.$path);
+        return Storage::url('app/public/privews_works/'.$path);
     }
 
     public function getService($email)
@@ -56,6 +56,23 @@ class Freelancer extends Model
     {
         $member= $this->where('identifcation_no',$email)->first();
         return $member->name;
+    }
+   
+    public function getFreelancerService($email)
+    {
+        $services=FreelanceService::where('freelancer_email',$email)->where('done',1)->get();
+        return $services->count();
+    }
+
+
+    public function getFreelancerState()
+    {
+       if($this->clients_record<10)
+       return 'عضو عادى';
+       else if($this->clients_record>10 && $this->clients_record<=20)
+       return 'عضو مميز';
+       else
+       return 'عضو راقى';
     }
 
 

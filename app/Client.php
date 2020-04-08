@@ -17,10 +17,24 @@ class Client extends Model
     {
         return $this->hasMany(Service::class);
     }
+    public function getclientServiceCount($email)
+    {
+        $client=$this::where('email',$email)->withCount('services')->first();
+        return $client->services_count;
+    }
     public function scopeWhenSearch($query,$search){
         return $query->when($search,function($q)use($search){
              return $q->where('name','like',"%$search%");
         });
+    }
+    public function getClientState()
+    {
+       if($this->clients_record<10)
+       return 'عميل عادى';
+       else if($this->clients_record>10 && $this->clients_record<=20)
+       return 'عميل مميز';
+       else
+       return 'عميل راقى';
     }
     
 }

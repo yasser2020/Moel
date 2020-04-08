@@ -1,7 +1,5 @@
 
-@include('patiats._head')
-<body>
-   
+@include('patiats._head')   
 @include('patiats._header')
     <!-- header-end -->
 
@@ -29,19 +27,7 @@
                                 </ol>
                               
                                     <h5  style="font-weight: bold;font-size: 16pt;color: white;text-align: right;text-decoration-line: underline">الشروط والاحكام</h5>
-                                <textarea  rows="3" class="form-control" style="font-weight: bold;font-size: 13pt;text-align: right;overflow-y: scroll;border: 1px solid #ddd;margin-bottom: 10px">
-                               الشروط والاحكام
-                               الشروط والاحكام
-                               الشروط والاحكام
-                               الشروط والاحكام
-                               الشروط والاحكام
-                               الشروط والاحكام
-                               الشروط والاحكام
-                               الشروط والاحكام
-                               الشروط والاحكام
-                               الشروط والاحكام
-
-                                </textarea>
+                            <textarea readonly  rows="3" class="form-control" style="font-weight: bold;font-size: 13pt;text-align: right;overflow-y: scroll;border: 1px solid #ddd;margin-bottom: 10px">{{$setting->termsandconditions}}</textarea>
                                 <div class="d-flex" style="text-align: right;direction: rtl">
                                     <input id="agree" value="agree" type="checkbox"  style="margin-left: 10px">
                                     <h5 style="font-weight: bold;font-size: 16pt;color: white;">اوفق</h5>
@@ -75,7 +61,7 @@
               }
               else
               {
-                
+                $('.go').prop("disabled",true);
                   
               }
             });

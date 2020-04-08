@@ -48,6 +48,9 @@
                     <th>#</th>
                     <th>اسم المشروع</th>
                     <th>الوصف </th>
+                    {{-- <th>المصصم </th>
+                    <th>المنفذ </th>
+                    <th>المشرف </th> --}}
                     <th>خيارات</th>
                   </tr>
                   </thead>
@@ -58,6 +61,9 @@
                     <td>{{$index+1}}</td>
                     <td>{{$project->name}}</td>
                     <td>{{Str::limit($project->description,50)}}</td>
+                    {{-- <td>{{$project->designer}}</td>
+                    <td>{{$project->executed}}</td>
+                    <td>{{$project->supervisor}}</td> --}}
                     <td>
                     @if (auth()->user()->hasPermission('update_projects'))
                     <a href="{{route('dashboard.projects.edit',$project->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"> تعديل</i></a>

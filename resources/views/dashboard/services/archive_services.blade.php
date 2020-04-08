@@ -67,7 +67,7 @@
                     <th>الموقع </th>
                     <th>الوصف </th>
                     <th>القبول</th>
-                    {{-- <th>خيارات</th> --}}
+                    <th>خيارات</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -84,31 +84,11 @@
                     @else
                     <td style="color:red"> لم يتم القبول</td>
                     @endif
-                  
-                    <!-- <td>
-                    @if (auth()->user()->hasPermission('update_freelancerServices'))
-                    <a href="{{route('dashboard.services.edit',$service->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"> تعديل</i></a>
+                  <td>
                     @if ($service->accept==1)
-                    <a href="" class="btn btn-success btn-sm"><i class="fa fa-check"> تفعيل</i></a>
-                    
-                    @endif
-                     @else
-                     <a href=""  class="btn btn-warning btn-sm"><i class="fa fa-edit"> تعديل</i></a>
- 
-                    @endif
-                        
-                        <form action="" style="display:inline-block" method="post">
-                       @csrf
-                       @method('delete')
-                       @if (auth()->user()->hasPermission('delete_freelancerServices'))
-                       <button type="submit" disabled class="btn btn-danger btn-sm delete_service"><i class="fa fa-trash"> حذف</i></button>
-                           @else
-                           <button type="submit" disabled class="btn btn-danger btn-sm delete_service"><i class="fa fa-trash"> Delete</i></button>
- 
-                       @endif
-                       </form>
-                     
-                        </td> -->
+                    <a href="{{route('dashboard.serviceDetailes',$service->id)}}" class="btn btn-info btn-sm"><i class="fa fa-plus"> تفاصيل</i></a>
+                     @endif
+                    </td>
                       </tr>
                         @endforeach
                      

@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\File;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,13 +11,24 @@
 |
 */
 
+// Route::get('/command',function(){
+//     File::link(
+//         storage_path('app/public'), public_path('storage')
+//     );
+// });
 Route::get('/command',function(){
-Artisan::call('storage:link');
+    \Artisan::call('migrate:fresh --seed');
+    dd('done');
+});
+Route::get('/seeder',function(){
+    \Artisan::call('dump-autoload');
+    dd('done');
 });
 
 Route::get('/','WelcomeController@index');
 Auth::routes();
 Route::get('index','WelcomeController@index')->name('index');
+Route::get('projecs','WelcomeController@projects')->name('projects');
 Route::post('client/save','ClientController@storeClient')->name('storeClient');
 Route::post('freelancer/save','ClientController@storeFreelancer')->name('storeFreelancer');
 Route::get('about','WelcomeController@about')->name('whoUs');

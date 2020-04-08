@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Response;
 use Intervention\Image\ImageManagerStatic as Image;
 use App\Freelancer;
 use App\User;
+use App\FreelanceService;
 
 
 class FreelancerController extends Controller
@@ -27,6 +29,13 @@ class FreelancerController extends Controller
     {
         $freelancers=Freelancer::whenSearch($request->search)->where('done',1)->paginate(5);
         return view('dashboard.freelancers.current_freelancers',compact('freelancers'));
+    }
+
+    public function getFreelancerServices($email)
+    {
+      
+        $services=FreelanceService::where('freelancer_email',$email)->where('done',1)->get();
+        return view('dashboard.freelancers.freelancer_services',compact('services'));
     }
 
     /**
@@ -171,19 +180,23 @@ class FreelancerController extends Controller
         $freelancer=Freelancer::findOrFail($id);
         if($type=='cv')
         {
-            $path=str_replace('/','\\',$freelancer->cv);
-            return response()->file(storage_path().'\\'.'app\\'.$path);
+           
+            // $path=str_replace('/','\\',$freelancer->cv);
+            // return Response::download(storage_path().'/'.'app/'.$freelancer->cv, 'fff.php', ['Content-Type' => 'application/pdf']);
+            return response()->file(storage_path().'/'.'app/'.$freelancer->cv,['Content-Type' => 'application/pdf']);
+
+            
         }
 
         if($type=='graduation_certificate')
         {
             $path=str_replace('/','\\',$freelancer->graduation_certificate);
-            return response()->file(storage_path().'\\'.'app\\'.$path);
+            return response()->file(storage_path().'/'.'app/'.$freelancer->graduation_certificate);
         }
         if($type=='confirmation_career')
         {
             $path=str_replace('/','\\',$freelancer->confirmation_career);     
-            return response()->file(storage_path().'\\'.'app\\'.$path);
+            return response()->file(storage_path().'/'.'app/'.$freelancer->confirmation_career);
          
         }
         if($type=='privews_work')
@@ -263,7 +276,8 @@ class FreelancerController extends Controller
                               
               }
         }
-        $user=User::where('email',($freelancer->email));
+        $user=User::where('identifcation_no',($freelancer->identifcation_no));
+        if($user!=null)
         $user->delete();
         $freelancer->delete();
         session()->flash('success','تم حذف البيانات بنجاح');

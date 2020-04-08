@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laratrust\Traits\LaratrustUserTrait;
+use App\Freelancer;
+use App\Client;
 
 class User extends Authenticatable
 {
@@ -43,6 +45,17 @@ class User extends Authenticatable
     {
         $client=Client::where('email',$email)->withCount('services')->first();
         return $client->services_count;
+    }
+    public function getFreelancer($identifcation_no)
+    {
+        $freelancer=Freelancer::where('identifcation_no',$identifcation_no)->first();
+        return $freelancer;
+    }
+
+    public function getClient($email)
+    {
+        $client=Client::where('email',$email)->first();
+        return $client;
     }
     
 

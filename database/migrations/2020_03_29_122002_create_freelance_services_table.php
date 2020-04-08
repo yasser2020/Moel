@@ -22,7 +22,6 @@ class CreateFreelanceServicesTable extends Migration
             $table->integer('accept')->default(0);
             $table->integer('work_alone')->default(0);
             $table->integer('accept_team')->default(0);
-            $table->integer('client_accept_id')->default(0);
             $table->string('team_memeber')->nullable();
             $table->integer('done')->default(0);
             $table->string('freelancer_email')->nullable();

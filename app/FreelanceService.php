@@ -28,6 +28,23 @@ class FreelanceService extends Model
         $freelancer=Freelancer::where('identifcation_no',$email)->first();
         return $freelancer;
     }
+    public function getTeamMemeber($team_member)
+    {
+        $members=[];
+        foreach ($team_member as $index => $email_member) {
+            
+            array_push($members,$this->getMember($email_member));
+        }
+
+        return $members;
+    }
+
+    public function getMember($email)
+    {
+        $member= Freelancer::where('identifcation_no',$email)->first();
+        return $member->name;
+    }
+   
 
 
 

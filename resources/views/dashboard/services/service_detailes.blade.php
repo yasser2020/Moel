@@ -51,7 +51,7 @@
                 <label for="name">نوع القبول</label>
               <input type="text" readonly name="city" class="form-control" value="{{$service->work_alone==0?'قبول فريق':'العمل وحدى'}}" required placeholder="المدينة">
               </div>
-              @if ($service->team_memeber!=0)
+              @if ($service->team_memeber!=null && $service->accept_team==1)
                   
               <div class="row">
                 <div class="col-12">

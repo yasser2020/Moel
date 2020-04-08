@@ -1,12 +1,10 @@
+@include('patiats._head')   
+@include('patiats._header')
 <div class="gallery_area" style="background: whitesmoke">
     <div class="container">
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="section_title text-center mb-75">
-                    <h3>انجازات المؤسسة</h3>
-                </div>
-            </div>
-        </div>
+        
+         <h3 class="text-center" style="font-weight: bold">تقدم مؤسسة موئل منظومة متكاملة من الخدمات، وتأخذ على عاتقها الاحترافية والابتكار في جميع مشاريعها من خلال مجموعة من المهندسين والفنيين المتخصصين والمصممين، إضافة للنظام الإداري المتابع لكافة تفاصيل المشروعات التي تم وسيتم تنفيذها، وخدمات الضمان على مدار العام</h3>
+         <hr style="font-weight: bold">
     </div>
         @if($projects!=null)
          @if($projects->count()>0)
@@ -27,3 +25,5 @@
 @endif
 @endif
 </div>
+
+@include('patiats._footer')

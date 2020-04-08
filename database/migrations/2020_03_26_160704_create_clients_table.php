@@ -25,8 +25,10 @@ class CreateClientsTable extends Migration
             $table->string('email');
             $table->string('how_know_us');
             $table->integer('clients_record')->default(0);
+            $table->integer('total_services')->default(0);
             $table->integer('subscription')->default(0);//1 for accept 0 for not accept
             $table->integer('done')->default(0); //1 for become memeber 0 for not
+            $table->integer('archive')->default(0);
             
             $table->timestamps();
         });

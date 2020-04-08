@@ -41,7 +41,7 @@
                               <label for="" class="mt-10"  style="font-weight: bold;color: white;margin-right: 10px;margin-left: 10px;font-size: 12pt">ارمل</label> --}}
                           </div> 
                           <div class="input_field mb_15">
-                          <input type="text" required name="date_of_birth" class="form-control" value="{{old('date_of_birth')}}" placeholder="تاريخ الميلاد" onfocus="(this.type='date')" style="font-weight: bold" >
+                          <input type="text" required name="date_of_birth" date_formate='yyyy/mm/dd'    class="form-control" value="{{old('date_of_birth')}}" placeholder="تاريخ الميلاد" onfocus="(this.type='date')" style="font-weight: bold" >
                         </div>
                               <div class="input_field mb_15">
                                 <input type="text"  name="nationality" required value="{{old('nationality')}}" class="form-control" placeholder="الجنسية" style="font-weight: bold">
@@ -149,7 +149,7 @@
                 </div>  
                 
                 <div class="input_field mb_15">
-                <p style="background:red;color: white" class="text-center">نرجو ارفاق صورة السداد وارسالها على الايميل المسجل وسيتم تفعيل اشتراكك خلال 24 ساعة من تاريخ الارسال واعلامكم بذلك خلال البريد الالكتروني المسجل حيث يمكنكم الدخول بعدها لمشاهدة العروض عن طريق الدخول للموقع من خلال اليوزرنيم والباسورد( البريد الالكتروني   – ورقم الجوال ).</p>
+                <p style="background:red;color: white" class="text-center">نرجو ارفاق صورة السداد وارسالها على الايميل المسجل وسيتم تفعيل اشتراكك خلال 24 ساعة من تاريخ الارسال واعلامكم بذلك خلال البريد الالكتروني المسجل حيث يمكنكم الدخول بعدها لمشاهدة العروض عن طريق الدخول للموقع من خلال اليوزرنيم والباسورد( رقم الهوية    – ورقم الجوال ).</p>
                 </div>
                                 <div class="input_field mb_15 text-center">
                                 <button type="submit" class="boxed-btn3" style="font-weight: bold;background: #17a2b8">حفظ</button>        

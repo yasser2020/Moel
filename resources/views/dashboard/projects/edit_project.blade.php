@@ -38,6 +38,18 @@
               <label for="exampleInputPassword1">الوصف</label>
               <textarea class="form-control" name="description" id="" cols="30" rows="3" placeholder="نبذة عن المشروع">{{old('name',$project->description)}}</textarea>
             </div>
+            {{-- <div class="form-group">
+              <label for="name">المصصم</label>
+              <input type="text" name="designer" class="form-control"  value="{{old('name',$project->designer)}}">
+            </div>
+            <div class="form-group">
+              <label for="name">المنفذ</label>
+              <input type="text" name="executed" class="form-control" value="{{old('name',$project->executed)}}">
+            </div>
+            <div class="form-group">
+              <label for="name">المشرف</label>
+              <input type="text" name="supervisor" class="form-control" value="{{old('name',$project->supervisor)}}">
+            </div> --}}
             <div class="form-group">
               <label for="images">الصور</label>
               <div class="input-group">

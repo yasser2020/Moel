@@ -5,17 +5,21 @@ middleware(['auth','role:super_admin|administrator'])->
 group(function(){
 
     //dashboard Route
-    Route::get('/','welcomeController@index')->name('welcome');
+    Route::get('/','WelcomeController@index')->name('welcome');
     //Projects Route
     Route::resource('projects','ProjectController')->except('show');
-    
+    Route::resource('settings','SettingsController')->except('show');
     //Clients Route
     Route::resource('clients','ClientController');
     Route::get('/currentClients','ClientController@currentClients')->name('currentClients');
+    Route::get('/ClientsNotSubscription','ClientController@ClientsNotSubscription')->name('ClientsNotSubscription');
+    Route::get('/archiveClients/{id}','ClientController@archiveClient')->name('archiveClients');
+    
     //Show currentClientsData
     Route::get('/currentClientData/{slug}','ClientController@currentClientsData')->name('currentClientsData');
  //Freelancer Route
  Route::resource('freelancers','FreelancerController');
+ Route::get('FreelancerServices/{email}/','FreelancerController@getFreelancerServices')->name('getFreelancerServices');
  Route::get('/show_image/{slug}/{type}','FreelancerController@showPage')->name('showImage');
  Route::get('/showFreelancerService/{email}/','FreelancerController@showFreelancerService')->name('showFreelancerService');
 

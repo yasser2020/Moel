@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-   protected $fillable=['name','description','path'];
+   protected $fillable=['name','description','designer','executed','supervisor','path'];
    protected $appends=['image_path'];
    protected $casts = ['path' => 'array'];
 
 
     public function getImage($path)
     {
-        return Storage::url('images/'.$path);
+        return Storage::url('app/public/images/'.$path);
     }
     
    

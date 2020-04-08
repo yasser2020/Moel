@@ -37,6 +37,18 @@
               <label for="exampleInputPassword1">الوصف</label>
               <textarea class="form-control" name="description" id="" cols="30" rows="3" placeholder="نبذة عن المشروع"></textarea>
             </div>
+            {{-- <div class="form-group">
+              <label for="name">المصصم</label>
+              <input type="text" name="designer" class="form-control" placeholder="من قام بالتصميم">
+            </div>
+            <div class="form-group">
+              <label for="name">المنفذ</label>
+              <input type="text" name="executed" class="form-control" placeholder="من قام بالتنفيذ">
+            </div>
+            <div class="form-group">
+              <label for="name">المشرف</label>
+              <input type="text" name="supervisor" class="form-control" placeholder="من قام بالاشراف">
+            </div> --}}
             <div class="form-group">
               <label for="images">الصور</label>
               <div class="input-group">

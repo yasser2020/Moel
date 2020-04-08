@@ -6,12 +6,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">الخدمات </h1>
+            <h1 class="m-0 text-dark">العملاء الغير مشتركين </h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-left">
               <li class="breadcrumb-item ">لوحة التحكم</li>
-              <li class="breadcrumb-item active">الخدمات الواردة</li>
+              <li class="breadcrumb-item">الارشيف</li>
+              <li class="breadcrumb-item active">العملاء</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -20,16 +21,9 @@
 <div class="container-fluid">
     <div class="card card-primary">
         <div class="card-header">
-          <div style="display:flex">
-            <div class="col-md-4">
-              @if (auth()->user()->hasPermission('create_freelancerServices'))
-              <a href="{{route('dashboard.services.create')}}"><i class="btn btn-success fa fa-plus"></i></a>
-              @endif 
-            </div>
-          <div class="col-md-4 justify-content-center">
-          <h3 class="card-title text-center">الخدمات </h3>
-        </div>
-        </div>
+
+          <h3 class="card-title text-center">العملاء</h3>
+       
       </div>
       </div>
       <section class="content">
@@ -39,7 +33,7 @@
                <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">
-                    <input type="text"class="form-control" name="search" autofocus placeholder="رقم الخدمة" value="{{request()->search}}">
+                    <input type="text"class="form-control" name="search" autofocus placeholder="اسم العميل" value="{{request()->search}}">
                     </div>
                   </div>
       
@@ -56,12 +50,12 @@
             </form><!--end of form -->
           </div> <!-- end of col-12 -->
         </div> <!-- end or row -->
-        @if ($services!=null && $services->count() >0)
+        @if ($clients->count() >0)
         <div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">الخدمات الواردة</h3>
+                <h3 class="card-title">بيانات  العملاء</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -69,37 +63,51 @@
                   <thead>
                   <tr>
                     <th>#</th>
-                    <th>نوع الخدمة</th>
-                    <th>الخدمة </th>
-                    <th>اسم مقدم الخدمة </th>
-                    <th>الحالة</th>
+                    <th>اسم العميل</th>
+                    <th>الجوال </th>
+                    <th>الايميل </th>
+                    <th>العنوان</th>
+                    <th> الخدمات</th>
+                    <th>تسجيل العملاء </th>
                     <th>خيارات</th>
                   </tr>
                   </thead>
                   <tbody>
                   
-                    @foreach ($services->get() as $index=>$service)
+                    @foreach ($clients as $index=>$client)
                     <tr>   
                     <td>{{$index+1}}</td>
-                    <td>{{$service->kind_of_service}}</td>
-                    <td>{{Str::limit($service->service,50)}}</td>
-                    <td>{{$service->getClientName($service->client_id)}}</td>
-                    <td>{{$service->getClientState($service->client_id)}}</td>
+                    <td>{{$client->name}}</td>
+                    <td>{{$client->phone_num}}</td>
+                    <td>{{$client->email}}</td>
+                    <td>{{$client->address}}</td>
+                    <td>{{$client->services_count}}</td>
+                    <td>{{$client->clients_record}}</td>
+                    {{-- <td>
+                      <form action="{{route('dashboard.clients.update',$client->id)}}" style="display:inline-block" method="post">
+                        @csrf
+                        @method('put')
+                        <button type="submit" {{$client->subscription=='0'?'disabled':''}} class="btn btn-primary btn-sm">
+                         {{$client->subscription=='1'?'تفعيل':'لا يرغب بالاشتراك'}}  
+                        </button>
+
+                      </form>
+                    </td> --}}
                     <td>
-                    @if (auth()->user()->hasPermission('update_freelancerServices'))
-                    <a href="{{route('dashboard.currentClientsData',$service->client_id)}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"> المزيد</i></a>
+                    @if (auth()->user()->hasPermission('read_clients'))
+                    <a href="{{route('dashboard.currentClientsData',$client->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"> المزيد</i></a>
                      @else
-                     <a href="" disabled="" class="btn btn-warning btn-sm"><i class="fa fa-edit"> تعديل</i></a>
+                     <a href="" disabled="" class="btn btn-warning btn-sm"><i class="fa fa-edit"> المزيد</i></a>
  
                     @endif
                         
-                    <form action="{{route('dashboard.clientServices.update',$service->id)}}" style="display:inline-block" method="post">
+                    <form action="{{route('dashboard.clients.destroy',$client->id)}}" style="display:inline-block" method="post">
                        @csrf
-                       @method('put')
-                       @if (auth()->user()->hasPermission('delete_freelancerServices'))
-                       <button type="submit" class="btn btn-danger btn-sm delete"><i class="fa fa-trash"> حذف</i></button>
+                       @method('delete')
+                       @if (auth()->user()->hasPermission('delete_clients'))
+                       <button type="submit" class="btn btn-danger btn-sm delete_client"><i class="fa fa-trash"> حذف</i></button>
                            @else
-                           <button type="submit" disabled class="btn btn-danger btn-sm delete"><i class="fa fa-trash"> Delete</i></button>
+                           <button type="submit" disabled class="btn btn-danger btn-sm delete_client"><i class="fa fa-trash"> Delete</i></button>
  
                        @endif
                        </form>
@@ -113,7 +121,7 @@
                  
                   </tfoot>
                 </table>
-                {{-- {{$services->appends(request()->query())->links()}} --}}
+                {{$clients->appends(request()->query())->links()}}
               </div>
               <!-- /.card-body -->
             </div>

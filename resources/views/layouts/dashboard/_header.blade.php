@@ -34,5 +34,5 @@
     <link rel="stylesheet" href="{{asset('dashboard_files/css/custom-style.css')}}">
     <link href="{{ asset('dashboard_files/css/noty.css') }}" rel="stylesheet">
     <script src="{{asset('dashboard_files/js/noty.min.js')}}"></script>
-  
+
   </head>

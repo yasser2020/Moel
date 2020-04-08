@@ -65,39 +65,28 @@
                     <th>اسم العضو</th>
                     <th>الجوال </th>
                     <th>الايميل </th>
-                    {{-- <th>العنوان</th> --}}
-                    <th>الخدمة التى انجازها</th>
+                    <th>المسجلين بالاسم</th>
+                    {{-- <th>الخدمة التى انجازها</th>
                     <th>رقم الخدمة</th>
-                    <th> فريق العمل</th>
+                    <th> فريق العمل</th> --}}
                     <th>خيارات</th>
                   </tr>
                   </thead>
                   <tbody>
-                  
+                     
                     @foreach ($freelancers as $index=>$freelancer)
                     <tr style="font-size: 9pt">   
                     <td>{{$index+1}}</td>
                     <td>{{$freelancer->name}}</td>
                     <td>{{$freelancer->phone_num}}</td>
                     <td>{{$freelancer->email}}</td>
-                    @if ($freelancer->getService($freelancer->identifcation_no)!=null)
-                    <td>{{$freelancer->getService($freelancer->identifcation_no)->service_description}}</td>
-                    <td>{{$freelancer->getService($freelancer->identifcation_no)->service_num}}</td>
-                    <?php
-                       $members=$freelancer->getTeamMemeber($freelancer->getService($freelancer->identifcation_no)->team_memeber);
-                    ?>
-                    <td>{{is_array($members)?implode(array_filter($members),' - '):$members}}</td>
-                    @else
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                        
-                    @endif
-                   
+                    <td>{{$freelancer->clients_record}}</td>
                     
+      
                    
                     <td>
                     @if (auth()->user()->hasPermission('read_freelancers'))
+                    <a href="{{route('dashboard.getFreelancerServices',$freelancer->identifcation_no)}}"   target="_blank" class="btn btn-warning btn-sm"><i class="fa fa-check"> الخدمات </i></a>
                     <a href="{{route('dashboard.freelancers.show',$freelancer->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"> المزيد</i></a>
                      @else
                      <a href="" disabled="" class="btn btn-warning btn-sm"><i class="fa fa-edit"> المزيد</i></a>

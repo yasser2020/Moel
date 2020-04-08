@@ -21,7 +21,10 @@
 <div class="container-fluid">
     <div class="card card-success">
         <div class="card-header">
+      
           <h3 class="card-title text-center">بيانات المتقدم</h3>
+          
+
         </div>
        
         <form role="form">
@@ -51,6 +54,8 @@
               <div class="col-md-2 mb-10">
                 <a href="{{route('dashboard.showImage',[$freelancer->id,'type'=>'privews_work'])}}"   target="_blank" class="btn btn-warning "> نماذج اعمال</a>
               </div>
+              
+
             </div>
             </div>
             <div class="form-group">
