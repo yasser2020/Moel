@@ -4,7 +4,7 @@
     <!-- header-end -->
 
     <!-- slider_area_start -->
-    <div class="slider_area" style="background: black">
+    <div class="slider_area bg" >
         <div class="slider_active owl-carousel">
             <div class="single_slider  d-flex align-items-center slider_bg_1 overlay">
                 <div class="container">
@@ -34,11 +34,11 @@
                                 </div>
                                 <div class="d-flex justify-content-center">
                                 <form action="{{route('createClient')}}" method="get">
-                                    <button type="submit"  disabled class="boxed-btn3 go" style="margin-right: 10px">للتقديم</button>
+                                    <button type="submit"  disabled class="boxed-btn3 go myButton" style="margin-right: 10px">للتقديم</button>
                                 </form>
                                 
                                 {{-- <a href="{{route('createFreelancer')}}" class="boxed-btn3">للتقديم</a> --}}
-                                <a href="{{URL::previous()}}" class="boxed-btn3">الرجوع</a>
+                                <a href="{{URL::previous()}}" class="boxed-btn3 myButton">الرجوع</a>
                             </div>
                             </div>
                         </div>

@@ -1,14 +1,14 @@
 @include('patiats._head')   
 @include('patiats._header')
 
-<div class="Reservation_area" style="background-image: linear-gradient(#D57EEB,#FCCB90);">
+<div class="Reservation_area bg">
    
     <div class="container p-0" style="direction: rtl">
         
         <div class="row no-gutters justify-content-center">
            
             <div class="col-lg-6">
-                <div class="book_Form" style="background-image: linear-gradient(#D57EEB,#FCCB90);">
+                <div class="book_Form" style="background-image: linear-gradient(#F3904F,#3B4371);">
                     <h3 class="text-center">تسجيل دخول</h3>
                     
                     <div class="row ">
@@ -28,7 +28,7 @@
                                     <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} style="width:20px;" >
                                 </div>
                                 <div class="input_field mb_15 text-center">
-                                <button type="submit" class="boxed-btn3" style="font-weight: bold;">الدخول</button>        
+                                <button type="submit" class="boxed-btn3 myButton" style="font-weight: bold;">الدخول</button>        
                                 </div>
                             </form>
                         </div>

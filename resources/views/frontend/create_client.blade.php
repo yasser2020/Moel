@@ -1,14 +1,14 @@
 @include('patiats._head')   
 @include('patiats._header')
 
-<div class="Reservation_area"style="background-image: linear-gradient(#D57EEB,#FCCB90);" >
+<div class="Reservation_area bg" >
    
     <div class="container p-0" style="direction: rtl">
         
         <div class="row no-gutters justify-content-center">
            
-            <div class="col-lg-12">
-                <div class="book_Form" style="background-image: linear-gradient(#D57EEB,#FCCB90);">
+            <div class="col-lg-6">
+                <div class="book_Form" style="background-image: linear-gradient(#F3904F,#3B4371);">
                     <h3 class="text-center"> استمارة تسجيل البيانات </h3>
                     
                     <div class="row ">
@@ -17,7 +17,7 @@
                             <form method="POST" action="{{route('storeClient')}}">
                                 @csrf
                         @auth
-                              <div class="input_field mb_15 d-flex" style="background: black">
+                              <div class="input_field mb_15 d-flex">
                                 <label for="" class="mt-10" style="font-weight: bold;color: white;margin-right: 10px;margin-left:10px;font-size: 14pt">نوع الخدمة</label>
                                 <input type="radio" name="kind_of_service" required  style="width:20px;" value="سكنى" >
                                 <label for="" class="mt-10"  style="font-weight: bold;color: white;margin-right: 10px;margin-left: 10px;font-size: 14pt">سكنى</label>
@@ -100,14 +100,14 @@
                                 <label for="" class="mt-10" style="font-weight: bold;color: white;margin-right: 10px;font-size: 14pt">لا ارغب</label>
                             </div>
                             <div class="input_field mb_15 d-flex">
-                              <p style="color: white;font-weight: bold" class="text-center">رقم الحساب للاشتراك : </p>
+                            <p style="color: white;font-weight: bold" class="text-center">رقم الحساب للاشتراك : {{$setting->account_num}}</p>
                             </div>
                             <div class="input_field mb_15 d-flex">
                               <p style="background:red;color: white" class="text-center">نرجو ارفاق صورة السداد وارسالها على الايميل المسجل وسيتم تفعيل اشتراكك خلال 24 ساعة من تاريخ الارسال واعلامكم بذلك من خلال البريد الالكتروني المسجل .</p>
                             </div>
                             @endauth
                                 <div class="input_field mb_15 text-center">
-                                <button type="submit" class="boxed-btn3" style="font-weight: bold;background: #17a2b8">حفظ</button>        
+                                <button type="submit" class="myButton" style="font-weight: bold;background: #17a2b8">حفظ</button>        
                                 </div>
                             </form>
                         </div>

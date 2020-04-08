@@ -16,7 +16,7 @@ class SettingSeeder extends Seeder
             'whats_num'=>'0111602064',
             'email'=>'yezzat2020@gmail.com',
             'termsandconditions'=>'الشروط والاحكام',
-            
+            'account_num'=>'57357',
                ]);
     }
 }

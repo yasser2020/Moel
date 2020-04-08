@@ -88,15 +88,15 @@ use App\Settings;
             <div class="footer_border"></div>
             <div class="row">
                 <div class="col-md-12">
-                    <p class="text-center">للتواصل معنا</p>
+                    <p class="text-center ff">للتواصل معنا</p>
                     <div class="justify-content-center d-flex">
-                        <p style="padding: 10px"><i class="fa fa-phone"></i> {{$setting->phone_num}}</p>
-                        <p style="padding: 10px"><i class="fa fa-mobile"></i> {{$setting->whats_num}}</p>
-                        <p style="padding: 10px"><i class="fa fa-google"></i> {{$setting->email}}</p>
+                        <p class="ff" style="padding: 10px"><i class="fa fa-phone"></i> {{$setting->phone_num}}</p>
+                        <p class="ff" style="padding: 10px"><i class="fa fa-mobile"></i> {{$setting->whats_num}}</p>
+                        <p class="ff" style="padding: 10px"><i class="fa fa-google"></i> {{$setting->email}}</p>
                     </div>
                     <p class="copy_right text-center">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | مؤسسة مؤئل للتصميم والتنسيق والعمارة
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="ff">مؤسسة مؤئل للتصميم والتنسيق والعمارة</i>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>

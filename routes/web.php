@@ -20,10 +20,6 @@ Route::get('/command',function(){
     \Artisan::call('migrate:fresh --seed');
     dd('done');
 });
-Route::get('/seeder',function(){
-    \Artisan::call('dump-autoload');
-    dd('done');
-});
 
 Route::get('/','WelcomeController@index');
 Auth::routes();

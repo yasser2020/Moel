@@ -35,11 +35,15 @@
             </div>
             <div class="form-group">
                 <label for="name">رقم الواتساب </label>
-                <input type="text" required name="whats_num" class="form-control"  value="{{old('phone_num',$setting->whats_num)}}" placeholder="رقم الواتساب ">
+                <input type="text" required name="whats_num" class="form-control"  value="{{old('whats_num',$setting->whats_num)}}" placeholder="رقم الواتساب ">
               </div>
               <div class="form-group">
                 <label for="name">الايميل </label>
-                <input type="email" required name="email" class="form-control"  value="{{old('phone_num',$setting->email)}}" placeholder="الايميل">
+                <input type="email" required name="email" class="form-control"  value="{{old('email',$setting->email)}}" placeholder="الايميل">
+              </div>
+              <div class="form-group">
+                <label for="name">رقم الحساب </label>
+                <input type="text" required name="account_num" class="form-control"  value="{{old('account_num',$setting->account_num)}}" placeholder="الايميل">
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">الشروط والاحكام</label>

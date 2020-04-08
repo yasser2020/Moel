@@ -41,7 +41,7 @@
                                   </li>
 
                                   @else
-                                  <a href="{{route('login')}}" class="btn btn-warning mb-2 mb-md-0 mr-0 mr-md-2" style="font-weight: bold">تسجيل الدخول</a>
+                                  <a href="{{route('login')}}" class="myButton2 mb-2 mb-md-0 mr-0 mr-md-2" style="font-weight: bold">تسجيل الدخول</a>
                                       
                                      
                                   @endauth

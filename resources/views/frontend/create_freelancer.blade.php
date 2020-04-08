@@ -1,14 +1,14 @@
 @include('patiats._head')   
 @include('patiats._header')
 
-<div class="Reservation_area" style="background-image: linear-gradient(#D57EEB,#FCCB90);">
+<div class="Reservation_area bg">
    
     <div class="container p-0" style="direction: rtl">
         
         <div class="row no-gutters justify-content-center">
            
-            <div class="col-lg-12">
-                <div class="book_Form" style="background-image: linear-gradient(#D57EEB,#FCCB90);">
+            <div class="col-lg-6">
+                <div class="book_Form" style="background-image: linear-gradient(#F3904F,#3B4371);">
                     <h3 class="text-center"> استمارة تسجيل البيانات </h3>
                     
                     <div class="row ">
@@ -147,12 +147,14 @@
                 <div class="input_field mb_15">
                   <input type="texthow_know_us" required value="{{old('how_know_us')}}" name="how_know_us" class="form-control" placeholder="الجهة التى تعرفت بها علينا او اسم الشخص رباعيا" style="font-weight: bold">
                 </div>  
-                
+                <div class="input_field mb_15 d-flex">
+                  <p style="color: white;font-weight: bold" class="text-center">رقم الحساب للاشتراك : {{$setting->account_num}}</p>
+                  </div>
                 <div class="input_field mb_15">
                 <p style="background:red;color: white" class="text-center">نرجو ارفاق صورة السداد وارسالها على الايميل المسجل وسيتم تفعيل اشتراكك خلال 24 ساعة من تاريخ الارسال واعلامكم بذلك خلال البريد الالكتروني المسجل حيث يمكنكم الدخول بعدها لمشاهدة العروض عن طريق الدخول للموقع من خلال اليوزرنيم والباسورد( رقم الهوية    – ورقم الجوال ).</p>
                 </div>
                                 <div class="input_field mb_15 text-center">
-                                <button type="submit" class="boxed-btn3" style="font-weight: bold;background: #17a2b8">حفظ</button>        
+                                <button type="submit" class="myButton" style="font-weight: bold;background: #17a2b8">حفظ</button>        
                                 </div>
                             </form>
                         </div>

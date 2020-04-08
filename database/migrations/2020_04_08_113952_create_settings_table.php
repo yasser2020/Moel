@@ -19,6 +19,7 @@ class CreateSettingsTable extends Migration
             $table->string('whats_num')->nullable();
             $table->string('email')->nullable();
             $table->text('termsandconditions');
+            $table->text('account_num');
             $table->timestamps();
         });
     }

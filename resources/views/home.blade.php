@@ -4,7 +4,7 @@
 
     <!-- header-end -->
     
-    <div class="bradcam_area bradcam_bg_2" style="background: black">
+    <div class="bradcam_area bradcam_bg_2 bg" >
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-12">
@@ -12,10 +12,10 @@
                        
                         @auth
                         @if (auth()->user()->hasRole('super_admin'))
-                        <a href="{{route('dashboard.welcome')}}"  class="boxed-btn3 btn btn-primary mb-50" style="font-weight: bold;font-size: 15pt">لوحة التحكم </a>
+                        <a href="{{route('dashboard.welcome')}}"  class="boxed-btn3 btn btn-primary mb-50 myButton">لوحة التحكم </a>
                         @endif
                         @if (auth()->user()->hasRole('client'))
-                        <a href="{{route('createClient')}}"  class="boxed-btn3 btn btn-primary mb-50" style="font-weight: bold;font-size: 15pt">خدمة العملاء</a>
+                        <a href="{{route('createClient')}}"  class="boxed-btn3 btn btn-primary mb-50 myButton">خدمة العملاء</a>
                         @endif
                         @if (auth()->user()->hasRole('freelancer'))
                        
