@@ -20,6 +20,15 @@ Route::get('/command',function(){
     \Artisan::call('migrate:fresh --seed');
     dd('done');
 });
+Route::get('/run',function(){
+    \Artisan::call('route:list');
+    dd('done');
+});
+Route::get('/updateapp', function()
+{
+    exec('composer dump-autoload');
+    echo 'composer dump-autoload complete';
+});
 
 Route::get('/','WelcomeController@index');
 Auth::routes();
