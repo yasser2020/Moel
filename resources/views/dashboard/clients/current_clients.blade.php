@@ -101,11 +101,11 @@
  
                     @endif
                         
-                    <form action="{{route('dashboard.clients.destroy',$client->id)}}" style="display:inline-block" method="post">
+                    <form action="{{route('dashboard.blockClient',$client->id)}}" style="display:inline-block" method="post">
                        @csrf
-                       @method('delete')
+                       @method('get')
                        @if (auth()->user()->hasPermission('delete_clients'))
-                       <button type="submit" class="btn btn-danger btn-sm delete_client"><i class="fa fa-trash"> حذف</i></button>
+                       <button type="submit" class="btn btn-danger btn-sm delete_client"><i class="fa fa-trash"> حظر</i></button>
                            @else
                            <button type="submit" disabled class="btn btn-danger btn-sm delete_client"><i class="fa fa-trash"> Delete</i></button>
  

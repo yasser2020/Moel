@@ -9,11 +9,11 @@ use App\FreelanceService;
 class Freelancer extends Model
 {
     
-    
+    protected $softDelete=true;
     protected $fillable=['name','sex','identifcation_no','marital_status','date_of_birth','nationality',
     'city','address','phone_num','whats_num','email','qualification','graduation_year','grade','faculty',
     'experince','hopies','work_place','work_nature','work_time','cv','graduation_certificate','confirmation_career',
-    'picture','privews_work','show_work','how_know_us','done'];
+    'picture','privews_work','show_work','how_know_us','done','block'];
     protected $appends=['picture_path'];
 
     protected $casts = ['privews_work' => 'array'];

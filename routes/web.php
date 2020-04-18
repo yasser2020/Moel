@@ -21,7 +21,7 @@ Route::get('/command',function(){
     dd('done');
 });
 Route::get('/run',function(){
-    \Artisan::call('route:list');
+    \Artisan::call('config:clear');
     dd('done');
 });
 Route::get('/updateapp', function()
@@ -34,6 +34,7 @@ Route::get('/','WelcomeController@index');
 Auth::routes();
 Route::get('index','WelcomeController@index')->name('index');
 Route::get('projecs','WelcomeController@projects')->name('projects');
+Route::get('offers','WelcomeController@offers')->name('offers');
 Route::post('client/save','ClientController@storeClient')->name('storeClient');
 Route::post('freelancer/save','ClientController@storeFreelancer')->name('storeFreelancer');
 Route::get('about','WelcomeController@about')->name('whoUs');

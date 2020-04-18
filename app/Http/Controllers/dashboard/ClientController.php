@@ -25,10 +25,38 @@ class ClientController extends Controller
 
     public function currentClients(Request $request)
     {
-        $clients=Client::whenSearch($request->search)->where('done',1)->withCount('services')->paginate(5);
+        $clients=Client::whenSearch($request->search)->where('done',1)->where('block',0)->withCount('services')->paginate(5);
         return view('dashboard.clients.current_clients',compact('clients'));
     }
+    public function blocksClients(Request $request)
+    {
+        $clients=Client::whenSearch($request->search)->where('done',1)->where('block',1)->withCount('services')->paginate(5);
+        return view('dashboard.clients.blocks_clients',compact('clients'));
+    }
 
+    public function restore($id)
+    {
+        $id=(int)$id;
+        $client=Client::findOrFail($id);
+        $client->block=0;
+        $client->update();
+        $user=User::withTrashed()->where('email',$client->email)->restore();
+        session()->flash('success','تم فك الحظر  بنجاح');
+        return redirect()->back();
+
+    }
+    public function block($id)
+    {
+        $id=(int)$id;
+        $client=Client::findOrFail($id);
+        $user=User::where('email',($client->email));
+        $client->block=1;
+        $client->update();
+        $user->update(['block'=>1]);
+        $user->delete();
+        session()->flash('success','تم حظر العميل بنجاح');
+        return redirect()->back();
+    }
     public function ClientsNotSubscription(Request $request)
     {
         $clients=Client::whenSearch($request->search)->where('archive',1)->withCount('services')->paginate(5);
@@ -156,6 +184,7 @@ class ClientController extends Controller
           return redirect()->back();
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -167,7 +196,7 @@ class ClientController extends Controller
         $user=User::where('email',($client->email));
         $user->delete();
         $client->delete();
-      session()->flash('success','تم  حذف بيانات العميل بنجاح');
+      session()->flash('success','تم  حظر  العميل بنجاح');
       return redirect()->back();  
     }
 }

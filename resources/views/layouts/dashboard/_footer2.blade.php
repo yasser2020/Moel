@@ -92,13 +92,88 @@
           });
           n.show();
      });
-
+     //delete site
+     $(document).on('click','.delete_site',function(e){
+       e.preventDefault();
+       var that=$(this);
+          var n=new Noty({
+        text:"سيم حذف الموقع ",
+        killer:true,
+        buttons:[
+          Noty.button('نعم','btn btn-danger ml-100',function(){
+           that.closest('form').submit();
+          }),
+          Noty.button('لا','btn btn-success',function(){
+                n.close();
+         }),
+  
+        ],
+          });
+          n.show();
+     });
+     //delete offer
+     $(document).on('click','.delete_offer',function(e){
+       e.preventDefault();
+       var that=$(this);
+          var n=new Noty({
+        text:"سيم حذف العرض ",
+        killer:true,
+        buttons:[
+          Noty.button('نعم','btn btn-danger ml-100',function(){
+           that.closest('form').submit();
+          }),
+          Noty.button('لا','btn btn-success',function(){
+                n.close();
+         }),
+  
+        ],
+          });
+          n.show();
+     });
+      //delete advantage
+      $(document).on('click','.delete_advantage',function(e){
+       e.preventDefault();
+       var that=$(this);
+          var n=new Noty({
+        text:"سيم حذف الميزة ",
+        killer:true,
+        buttons:[
+          Noty.button('نعم','btn btn-danger ml-100',function(){
+           that.closest('form').submit();
+          }),
+          Noty.button('لا','btn btn-success',function(){
+                n.close();
+         }),
+  
+        ],
+          });
+          n.show();
+     });
      //delele client
      $(document).on('click','.delete_client',function(e){
        e.preventDefault();
        var that=$(this);
           var n=new Noty({
-        text:"سيم حذف العميل",
+        text:"سيم حظر العميل",
+        killer:true,
+        buttons:[
+          Noty.button('نعم','btn btn-danger ml-100',function(){
+           that.closest('form').submit();
+          }),
+          Noty.button('لا','btn btn-success',function(){
+                n.close();
+         }),
+  
+        ],
+          });
+          n.show();
+     });
+     //restore block for client
+     $(document).on('click','.restore_client',function(e){
+       e.preventDefault();
+       var that=$(this);
+          var n=new Noty({
+        text:"سيم فك الحظر ",
         killer:true,
         buttons:[
           Noty.button('نعم','btn btn-danger ml-100',function(){
@@ -118,7 +193,27 @@
        e.preventDefault();
        var that=$(this);
           var n=new Noty({
-        text:"سيم حذف العضو",
+        text:"سيم حظر العضو",
+        killer:true,
+        buttons:[
+          Noty.button('نعم','btn btn-danger ml-100',function(){
+           that.closest('form').submit();
+          }),
+          Noty.button('لا','btn btn-success',function(){
+                n.close();
+         }),
+  
+        ],
+          });
+          n.show();
+     });
+
+     //restore block
+     $(document).on('click','.restore_freelancer',function(e){
+       e.preventDefault();
+       var that=$(this);
+          var n=new Noty({
+        text:"سيم  فك الحظر",
         killer:true,
         buttons:[
           Noty.button('نعم','btn btn-danger ml-100',function(){

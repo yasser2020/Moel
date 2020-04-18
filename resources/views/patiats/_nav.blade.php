@@ -2,7 +2,7 @@
 use App\Settings;
    $setting=Settings::findOrFail(1);
 ?>
-<nav style="background: black">
+<nav >
     <ul id="navigation">
     <li><a href="{{route('index')}}" style="font-size: 15pt;font-weight: bold">الرئيسية</a></li>
     <li><a href="{{route('whoUs')}}" style="font-size: 15pt;font-weight: bold">من نحن</a></li>

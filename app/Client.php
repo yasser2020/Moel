@@ -4,13 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 use App\Servcie;
 
 class Client extends Model
 {
-   
+   use SoftDeletes;
     protected $fillable=['name','sex','nationality','city','address','phone_num','whats_num','email',
-    'how_know_us','subscription'];
+    'how_know_us','subscription','block'];
     
 
     public function services()

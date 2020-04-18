@@ -1,6 +1,9 @@
 <?php
 use App\Settings;
+use App\SocialNetwork;
    $setting=Settings::findOrFail(1);
+   $socail_networks=SocialNetwork::get();
+   
 ?>
 <footer class="footer">
     <div class="footer_top" style="padding-top: 5px;padding-bottom: 0px;">
@@ -93,10 +96,17 @@ use App\Settings;
                         <p class="ff" style="padding: 10px"><i class="fa fa-phone"></i> {{$setting->phone_num}}</p>
                         <p class="ff" style="padding: 10px"><i class="fa fa-mobile"></i> {{$setting->whats_num}}</p>
                         <p class="ff" style="padding: 10px"><i class="fa fa-google"></i> {{$setting->email}}</p>
+                        @if ($socail_networks!=null)
+                        @foreach ($socail_networks as $social_network)
+                        <p class="ff" style="padding: 10px"><i class="fa fa-{{$social_network->site}}"></i> {{$social_network->link}}</p>  
+                        @endforeach
+                            
+                        @endif
+                       
                     </div>
                     <p class="copy_right text-center">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="ff">مؤسسة مؤئل للتصميم والديكور </i>
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="ff">{{$setting->logo}}</i>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>

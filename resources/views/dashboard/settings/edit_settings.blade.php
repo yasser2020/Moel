@@ -30,6 +30,18 @@
             @include('dashboard.partials._errors')
           <div class="card-body">
             <div class="form-group">
+              <label for="name">اسم الموقع</label>
+              <input type="text" required name="logo" class="form-control"  value="{{old('logo',$setting->logo)}}" placeholder="اسم الموقع">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">مقدمة المشاريع </label>
+              <textarea class="form-control" required name="projects_into" id="" cols="30" rows="3" >{{old('phone_num',$setting->projects_into)}}</textarea>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">مقدمة من نحن </label>
+              <textarea class="form-control" required name="about_into" id="" cols="30" rows="3" >{{old('phone_num',$setting->about_into)}}</textarea>
+            </div>
+            <div class="form-group">
               <label for="name">رقم موبيل </label>
             <input type="text" required name="phone_num" class="form-control" value="{{old('phone_num',$setting->phone_num)}}" placeholder="رقم موبيل ">
             </div>
@@ -43,11 +55,15 @@
               </div>
               <div class="form-group">
                 <label for="name">رقم الحساب </label>
-                <input type="text" required name="account_num" class="form-control"  value="{{old('account_num',$setting->account_num)}}" placeholder="الايميل">
+                <input type="text" required name="account_num" class="form-control"  value="{{old('account_num',$setting->account_num)}}" placeholder="رقم الحساب">
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">الشروط والاحكام</label>
-                <textarea class="form-control" required name="termsandconditions" id="" cols="30" rows="3" placeholder="الشروط والاحكام">{{old('phone_num',$setting->termsandconditions)}}</textarea>
+                <label for="exampleInputPassword1">الشروط والاحكام للعملاء</label>
+                <textarea class="form-control" required name="termsandconditions" id="" cols="30" rows="3" placeholder="الشروط والاحكام">{{old('phone_num',$setting->termsandconditions_clients)}}</textarea>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">الشروط والاحكام للاعضاء</label>
+                <textarea class="form-control" required name="termsandconditions" id="" cols="30" rows="3" placeholder="الشروط والاحكام">{{old('phone_num',$setting->termsandconditions_freelancers)}}</textarea>
               </div>
            
             

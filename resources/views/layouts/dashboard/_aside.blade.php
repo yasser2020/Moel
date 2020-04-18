@@ -137,17 +137,74 @@
                 <p>عملاء غير مشتركين</p>
               </a>
           </li>
-          @endif     
+          @endif 
+          @if (auth()->user()->hasPermission('read_freelancers'))
+          <li class="nav-item">
+          <a href="{{route('dashboard.blocksClients')}}" class="nav-link">
+                <i class="nav-icon fa fa-users"></i>
+                <p>العملاء المحظورين  </p>
+              </a>
+          </li>
+          @endif
+          @if (auth()->user()->hasPermission('read_clients'))
+          <li class="nav-item">
+          <a href="{{route('dashboard.BFreelancers')}}" class="nav-link">
+                <i class="nav-icon fa fa-users"></i>
+                <p>الاعضاء المحظورين  </p>
+              </a>
+          </li>
+          @endif
+              
+            </ul>
+          </li>
+          
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-pie-chart"></i>
+              <p>
+              الاعدادت
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('dashboard.settings.edit',1)}}" class="nav-link">
+                    <i class="nav-icon fa fa-tree"></i>
+                    <p>الاعدادات الرئيسية</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('dashboard.socail.index')}}" class="nav-link">
+                      <i class="nav-icon fa fa-tree"></i>
+                      <p> مواقع التواصل الاجتماعى</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                  <a href="{{route('dashboard.clientAdvantage.index')}}" class="nav-link">
+                        <i class="nav-icon fa fa-tree"></i>
+                        <p> مميزات العملاء  </p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{route('dashboard.freelancerAdvantage.index')}}" class="nav-link">
+                          <i class="nav-icon fa fa-tree"></i>
+                          <p> مميزات الاعضاء  </p>
+                        </a>
+                      </li>
+                      @if (auth()->user()->hasPermission('read_offers'))
+                  <li class="nav-item">
+                      <a href="{{route('dashboard.offers.index')}}" class="nav-link">
+                        <i class="nav-icon fa fa-pie-chart"></i>
+                        <p>العروض</p>
+                      </a>
+                  </li>
+              @endif
+
             </ul>
           </li>
 
-          <li class="nav-item">
-            <a href="{{route('dashboard.settings.edit',1)}}" class="nav-link">
-                <i class="nav-icon fa fa-tree"></i>
-                <p>الاعدادات</p>
-              </a>
-            </li>
 
+         
             {{-- <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-pie-chart"></i>

@@ -3,7 +3,7 @@
 <div class="gallery_area bg" >
     <div class="container">
         
-         <h3 class="text-center" style="font-weight: bold;color: white">تقدم مؤسسة موئل منظومة متكاملة من الخدمات، وتأخذ على عاتقها الاحترافية والابتكار في جميع مشاريعها من خلال مجموعة من المهندسين والفنيين المتخصصين والمصممين، إضافة للنظام الإداري المتابع لكافة تفاصيل المشروعات التي تم وسيتم تنفيذها، وخدمات الضمان على مدار العام</h3>
+    <h3 class="text-center" style="font-weight: bold;color: white">{{$setting->projects_into}}</h3>
          <hr style="font-weight: bold">
     </div>
         @if($projects!=null)

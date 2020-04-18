@@ -17,9 +17,9 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index()
+    public function index(Request $request)
     {
-        $services=FreelanceService::where('done','0')->get();
+        $services=FreelanceService::where('done','0')->whenSearch($request->search)->paginate(10);;
         return view('home',compact('services'));
     }
 

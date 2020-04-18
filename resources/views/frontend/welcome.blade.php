@@ -13,7 +13,7 @@
                     <div class="col-xl-9 col-md-9 col-md-12" style="direction: rtl">
                         <div class="slider_text text-center">
                     
-                            <h3 class="shadow demotext">مؤسسة مؤئل للتصميم  والديكور</h3>
+                        <h3 class="shadow demotext">{{$setting->logo}}</h3>
                             @auth
                             @if (auth()->user()->hasRole('client'))
                             <a href="{{route('createClient')}}"  class="boxed-btn3 btn btn-primary mb-50 myButton" style="font-weight: bold;font-size: 15pt">خدمة العملاء</a>
@@ -35,6 +35,9 @@
         </div>
     </div>
 </div>
+@if ($offers !=null)
+@include('frontend.offers') 
+@endif
 
 
    

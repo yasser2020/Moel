@@ -84,7 +84,11 @@ class SettingsController extends Controller
             'phone_num'=>'required',
             'whats_num'=>'required',
             'email'=>'required',
-            'termsandconditions'=>'required'
+            'termsandconditions'=>'required',
+            'account_num'=>'required',
+            'logo'=>'required',
+            'projects_into'=>'required',
+            'about_into'=>'required',
         ]);
 
         $setting->update($request->all());

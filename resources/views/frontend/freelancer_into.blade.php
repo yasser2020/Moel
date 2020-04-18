@@ -4,7 +4,10 @@
    
 @include('patiats._header')
     <!-- header-end -->
-
+    <?php
+    use App\freelancerAdavantages; 
+    $freelancerAdvantages=freelancerAdavantages::get();
+    ?>
     <!-- slider_area_start -->
     <div class="slider_area bg" >
         <div class="slider_active owl-carousel">
@@ -24,16 +27,15 @@
                                 <h5 style="font-weight: bold;font-size: 16pt;color: white">المميزات </h5>
                                  
                                 <ol style="color: yellow;font-weight: bold; font-size: 14pt;direction: rtl;">
-                                    <li  style="list-style: square">تنويع وتمكين الفرص للباحثين عن العمل</li>
-                                    <li style="list-style: square">يساهم في توفير دخل اضافي وزيادة دخل الافراد</li>
-                                    <li style="list-style: square">شهادة خبرة مقدمة من المؤسسة لكل فترة عمل</li>
-                                    <li style="list-style: square">زيادة دخل للقائمين على رأس عمل أخر بمنحهم فرص عمل إضافية خارجية</li>
-                                    <li style="list-style: square">لا يشترط الخبرة</li>
-                                    <li style="list-style: square">فرص تدريب للمتخرجين الجدد مع الشهادة</li>
+                                    @if ($freelancerAdvantages!=null)
+                                    @foreach ($freelancerAdvantages as $freelancerAdvantage)
+                             <li  style="list-style: square">{{$freelancerAdvantage->name}}</li>
+                                    @endforeach 
+                                 @endif
                                 </ol>
                               
                                     <h5  style="font-weight: bold;font-size: 16pt;color: white;text-align: right;text-decoration-line: underline">الشروط والاحكام</h5>
-                            <textarea readonly  rows="3" class="form-control" style="font-weight: bold;font-size: 13pt;text-align: right;overflow-y: scroll;border: 1px solid #ddd;margin-bottom: 10px">{{$setting->termsandconditions}}</textarea>
+                            <textarea readonly  rows="3" class="form-control" style="font-weight: bold;font-size: 13pt;text-align: right;overflow-y: scroll;border: 1px solid #ddd;margin-bottom: 10px">{{$setting->termsandconditions_freelancers}}</textarea>
                                 <div class="d-flex" style="text-align: right;direction: rtl">
                                     <input id="agree" value="agree" type="checkbox"  style="margin-left: 10px">
                                     <h5 style="font-weight: bold;font-size: 16pt;color: white;">اوفق</h5>

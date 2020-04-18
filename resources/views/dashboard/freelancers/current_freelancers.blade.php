@@ -93,11 +93,11 @@
  
                     @endif
                         
-                    <form action="{{route('dashboard.freelancers.destroy',$freelancer->id)}}" style="display:inline-block" method="post">
+                    <form action="{{route('dashboard.blockFreelancer',$freelancer->id)}}" style="display:inline-block" method="post">
                        @csrf
-                       @method('delete')
+                       @method('get')
                        @if (auth()->user()->hasPermission('delete_freelancers'))
-                       <button type="submit" class="btn btn-danger btn-sm delete_freelancer"><i class="fa fa-trash"> حذف</i></button>
+                       <button type="submit" class="btn btn-danger btn-sm delete_freelancer"><i class="fa fa-trash"> حظر</i></button>
                            @else
                            <button type="submit" disabled class="btn btn-danger btn-sm delete_freelancer"><i class="fa fa-trash"> Delete</i></button>
  

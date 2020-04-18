@@ -8,19 +8,21 @@ use App\Service;
 use App\Freelancer;
 use App\Project;
 use App\Settings;
+use App\Offers;
 class WelcomeController extends Controller
 {
     public function index()
     {
         // $freelancer=Freelancer::latest()->first();
-        $projects=Project::first();
+        $offers=Offers::first();
         $setting=Settings::findOrFail(1);
-        return view('frontend.welcome',compact('projects','setting'));
+        return view('frontend.welcome',compact('offers','setting'));
     }
    
     public function about()
     {
-        return view('frontend.about');
+        $setting=Settings::findOrFail(1);
+        return view('frontend.about',compact('setting'));
     }
     public function createClient()
     {
@@ -46,6 +48,13 @@ class WelcomeController extends Controller
     public function projects()
     {
         $projects=Project::first();
-        return view('frontend.projects',compact('projects'));
+        $setting=Settings::findOrFail(1);
+        return view('frontend.projects',compact('projects','setting'));
     }
+    // public function offers()
+    // {
+    //     $offers=Offers::first();
+    //     $setting=Settings::findOrFail(1);
+    //     return view('frontend.offers',compact('offers','setting'));
+    // }
 }

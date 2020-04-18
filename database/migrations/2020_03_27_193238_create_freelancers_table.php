@@ -44,6 +44,8 @@ class CreateFreelancersTable extends Migration
             $table->string('how_know_us');
             $table->integer('clients_record')->default(0);
             $table->integer('done')->default(0); //1 for become memeber 0 for not
+            $table->integer('block')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

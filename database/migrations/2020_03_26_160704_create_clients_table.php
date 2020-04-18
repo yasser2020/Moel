@@ -29,7 +29,8 @@ class CreateClientsTable extends Migration
             $table->integer('subscription')->default(0);//1 for accept 0 for not accept
             $table->integer('done')->default(0); //1 for become memeber 0 for not
             $table->integer('archive')->default(0);
-            
+            $table->integer('block')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

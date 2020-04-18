@@ -5,12 +5,37 @@
 </style>
 
 <section class="content" style="direction: rtl">
+  <div class="row">
+    <div class="col-md-12">
+      <form action="">
+         <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+              <input type="text"class="form-control" name="search" autofocus placeholder="رقم الخدمة او الموقع او المدينة" value="{{request()->search}}">
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <button class="btn btn-primary " type="submit"><i class="fa fa-search"> بحث</i></button>
+                
+              </div>
+            </div>
+       </div><!-- end of row -->
+       
+
+
+      </form><!--end of form -->
+    </div> <!-- end of col-12 -->
+  </div> <!-- end or row -->
+  @if($services!=null)
     @if ($services->count() >0)
     <div class="row">
      
-        <div class="card container-fluid">
+        
           <!-- /.card-header -->
           <div class="col-md-12">
+            <div class="card">
           <div class="card-body justify-content-center">
             <table id="example2" class="table table-bordered table-hover" >
               <thead>
@@ -82,7 +107,7 @@
                     @endforeach
               </tfoot>
             </table>
-            {{-- {{$services->appends(request()->query())->links()}} --}}
+            {{$services->appends(request()->query())->links()}}
           </div>
           <!-- /.card-body -->
         </div>
@@ -93,6 +118,7 @@
     <!-- /.row -->
     @else 
     <h3 style="font-weight:400">عفوا لايوجد بيانات</h3>
+    @endif
     @endif
   </section>
   @push('script')

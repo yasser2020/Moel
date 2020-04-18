@@ -18,8 +18,12 @@ class CreateSettingsTable extends Migration
             $table->string('phone_num')->nullable();
             $table->string('whats_num')->nullable();
             $table->string('email')->nullable();
-            $table->text('termsandconditions');
-            $table->text('account_num');
+            $table->text('termsandconditions_clients');
+            $table->text('termsandconditions_freelancers');
+            $table->string('account_num');
+            $table->string('projects_into');
+            $table->string('about_into');
+            $table->string('logo');
             $table->timestamps();
         });
     }

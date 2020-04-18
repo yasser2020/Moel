@@ -27,10 +27,37 @@ class FreelancerController extends Controller
     }
     public function currentFreelancers(Request $request)
     {
-        $freelancers=Freelancer::whenSearch($request->search)->where('done',1)->paginate(5);
+        $freelancers=Freelancer::whenSearch($request->search)->where('done',1)->where('block',0)->paginate(5);
         return view('dashboard.freelancers.current_freelancers',compact('freelancers'));
     }
+    public function blockFreelancers(Request $request)
+    {
+        $freelancers=Freelancer::whenSearch($request->search)->where('done',1)->where('block',1)->paginate(5);
+        return view('dashboard.freelancers.blocks_freelancers',compact('freelancers'));
+    }
+    public function block($id)
+    {
+        $id=(int)$id;
+        $freelancer=Freelancer::findOrFail($id);
+        $user=User::where('email',($freelancer->identifcation_no));
+        $freelancer->block=1;
+        $freelancer->update();
+        $user->update(['block'=>1]);
+        $user->delete();
+        session()->flash('success','تم حظر العضو بنجاح');
+        return redirect()->back();
+    }
+    public function restore($id)
+    {
+        $id=(int)$id;
+        $freelancer=Freelancer::findOrFail($id);
+        $freelancer->block=0;
+        $freelancer->update();
+        $user=User::withTrashed()->where('email',$freelancer->identifcation_no)->restore();
+        session()->flash('success','تم فك الحظر  بنجاح');
+        return redirect()->back();
 
+    }
     public function getFreelancerServices($email)
     {
       

@@ -124,9 +124,10 @@ class ProjectController extends Controller
 
     public function destroy(Project $project)
     {
+        if($project->path !=null){
         foreach ($project->path as $item)
             $done=Storage::disk('local')->delete('public/images/'.$item);                
-          
+        }
         $project->delete();
         session()->flash('success','تم حذف المشروع بنجاح');
         return redirect()->route('dashboard.projects.index');
