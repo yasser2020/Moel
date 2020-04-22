@@ -8,7 +8,7 @@
         <div class="row no-gutters justify-content-center">
            
             <div class="col-lg-6">
-                <div class="book_Form" style="background-image: linear-gradient(#3B4371,#3B4371);">
+                <div class="book_Form" style="background-image: linear-gradient(#6b2b06,#6b2b06);">
                     <h3 class="text-center"> استمارة تسجيل البيانات </h3>
                     
                     <div class="row ">
@@ -107,7 +107,7 @@
                             </div>
                             @endauth
                                 <div class="input_field mb_15 text-center">
-                                <button type="submit" class="myButton" style="font-weight: bold;background: #17a2b8">حفظ</button>        
+                                <button type="submit" class="myButton" style="font-weight: bold;background: #bfa58b">حفظ</button>        
                                 </div>
                             </form>
                         </div>

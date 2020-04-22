@@ -194,9 +194,9 @@ class ClientController extends Controller
     public function destroy(Client $client)
     {
         $user=User::where('email',($client->email));
-        $user->delete();
-        $client->delete();
-      session()->flash('success','تم  حظر  العميل بنجاح');
+        $user->forceDelete();
+        $client->forceDelete();
+      session()->flash('success','تم  حذف  العميل بنجاح');
       return redirect()->back();  
     }
 }

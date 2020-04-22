@@ -48,9 +48,9 @@
 }
 
 .bg{
-    background-image:url({{asset('img/moel.png')}});
-    background-size: cover; 
-    background-position: center;
+    
+    background-color: #a77e4c;
+
 }
 .demotext {
 color: #FFFFFF;

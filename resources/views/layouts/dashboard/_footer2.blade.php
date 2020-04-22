@@ -92,6 +92,47 @@
           });
           n.show();
      });
+
+     //delete client
+     $(document).ready(function(){
+     $(document).on('click','.delete_client',function(e){
+       e.preventDefault();
+       var that=$(this);
+          var n=new Noty({
+        text:"سيم حذف العميل",
+        killer:true,
+        buttons:[
+          Noty.button('نعم','btn btn-danger ml-100',function(){
+           that.closest('form').submit();
+          }),
+          Noty.button('لا','btn btn-success',function(){
+                n.close();
+         }),
+  
+        ],
+          });
+          n.show();
+     });
+     //delete freelancer
+     $(document).ready(function(){
+     $(document).on('click','.delete_freelancer',function(e){
+       e.preventDefault();
+       var that=$(this);
+          var n=new Noty({
+        text:"سيم حذف العضو",
+        killer:true,
+        buttons:[
+          Noty.button('نعم','btn btn-danger ml-100',function(){
+           that.closest('form').submit();
+          }),
+          Noty.button('لا','btn btn-success',function(){
+                n.close();
+         }),
+  
+        ],
+          });
+          n.show();
+     });
      //delete site
      $(document).on('click','.delete_site',function(e){
        e.preventDefault();
@@ -150,7 +191,7 @@
           n.show();
      });
      //delele client
-     $(document).on('click','.delete_client',function(e){
+     $(document).on('click','.block_client',function(e){
        e.preventDefault();
        var that=$(this);
           var n=new Noty({
@@ -189,7 +230,7 @@
      });
 
   //delele freelancer
-  $(document).on('click','.delete_freelancer',function(e){
+  $(document).on('click','.block_freelancer',function(e){
        e.preventDefault();
        var that=$(this);
           var n=new Noty({

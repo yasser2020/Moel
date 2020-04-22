@@ -281,3 +281,7 @@ a.disabled{
     pointer-events: none;
     cursor: default;
 }
+
+.bg{
+    background-color: red !important;
+}

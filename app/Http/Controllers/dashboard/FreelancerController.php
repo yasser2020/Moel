@@ -305,8 +305,8 @@ class FreelancerController extends Controller
         }
         $user=User::where('identifcation_no',($freelancer->identifcation_no));
         if($user!=null)
-        $user->delete();
-        $freelancer->delete();
+        $user->forceDelete();
+        $freelancer->forceDelete();
         session()->flash('success','تم حذف البيانات بنجاح');
          return redirect()->back();
         

@@ -1,10 +1,9 @@
 @include('patiats._head')   
 @include('patiats._header')
-<div class="gallery_area" style="background:black" >
+<div class="container" style="background-color: black">
     
         @if($offers!=null)
          @if($offers->count()>0)
-               
              @foreach ($offers->get() as $offer)
              <div class="container">
              <h3 class="text-center" style="font-weight: bold;color: white">{{$offer->description}}</h3>
@@ -18,10 +17,7 @@
                              @endforeach
                              @endif
             </div>
-            
              @endforeach
-         
-         
 @endif
 @endif
 </div>
