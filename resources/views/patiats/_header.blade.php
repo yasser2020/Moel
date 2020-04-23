@@ -13,7 +13,7 @@
                                    
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         
-                                    <p style="font-weight: bold;font-size: 14pt;color: #17a2b8">  {{auth()->user()->name}}</p>
+                                    <p style="font-weight: bold;font-size: 14pt;color: yellow">  {{auth()->user()->name}}</p>
 
                                     </a>
                                     @if (auth()->user()->hasRole('freelancer'))
@@ -22,7 +22,7 @@
                                     
                                     ?>
                                       
-                                     <p style="font-weight: bold;font-size: 15pt;color: white;background: black;text-align: center">اللهم أرزقني وأرزق مني </p>
+                                     <p style="font-weight: bold;font-size: 15pt;color: white;text-align: center">اللهم أرزقني وأرزق مني </p>
                                      @endif
                                    
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">

@@ -2857,7 +2857,7 @@ h3 {
 
 /* line 23, ../../Arafath/CL/Cl November/225. Restaurant-02/HTML/scss/_bradcam.scss */
 .bradcam_area::before {
-  position: absolute;
+  /* position: absolute; */
   left: 0;
   top: 0;
   width: 100%;

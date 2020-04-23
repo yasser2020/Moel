@@ -4,7 +4,7 @@
 
     <!-- header-end -->
     
-    <div class="bradcam_area bradcam_bg_2 bg" >
+    <div class="bradcam_area  bg" >
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-12">
