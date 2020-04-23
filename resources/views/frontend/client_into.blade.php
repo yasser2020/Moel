@@ -3,17 +3,17 @@
 @include('patiats._header')
     <!-- header-end -->
 <?php
-use App\clientAdavantages; 
+use App\ClientAdavantages; 
 $clientAdvantages=clientAdavantages::get();
 ?>
     <!-- slider_area_start -->
     <div class="slider_area bg" >
         <div class="slider_active owl-carousel">
-            <div class="single_slider  d-flex align-items-center slider_bg_1 overlay">
+            <div class="single_slider  d-flex align-items-center">
                 <div class="container">
                     <div class="row align-items-center justify-content-center">
                         <div class="col-xl-9 col-md-9 col-md-12">
-                            <div class="slider_text text-center" style="margin-bottom: 190px" >
+                            <div class="slider_text text-center" >
                                 
                               
 

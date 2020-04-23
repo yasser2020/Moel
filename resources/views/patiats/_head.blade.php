@@ -49,7 +49,7 @@
 
 .bg{
     
-    background-color: #a77e4c;
+    background-color: #8d6b48;
 
 }
 .demotext {

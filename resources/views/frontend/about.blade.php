@@ -8,7 +8,7 @@
     <!-- slider_area_start -->
     <div class="slider_area bg">
         <div class="slider_active owl-carousel">
-            <div class="single_slider  d-flex align-items-center slider_bg_1 overlay">
+            <div class="single_slider  d-flex align-items-center bg ">
                 <div class="container">
                     <div class="row align-items-center justify-content-center">
                         <div class="col-xl-9 col-md-9 col-md-12">

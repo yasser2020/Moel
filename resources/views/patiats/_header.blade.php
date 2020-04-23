@@ -1,5 +1,5 @@
 <header>
-    <div class="header-area " style="direction: rtl">
+    <div class="header-area " style="direction: rtl;">
         <div id="sticky-header" class="main-header-area">
             <div class="container-fluid p-0">
                 <div class="header_bottom_border">

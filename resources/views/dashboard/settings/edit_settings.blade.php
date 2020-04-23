@@ -59,11 +59,11 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">الشروط والاحكام للعملاء</label>
-                <textarea class="form-control" required name="termsandconditions" id="" cols="30" rows="3" placeholder="الشروط والاحكام">{{old('phone_num',$setting->termsandconditions_clients)}}</textarea>
+                <textarea class="form-control" required name="termsandconditions_clients" id="" cols="30" rows="3" placeholder="الشروط والاحكام">{{old('phone_num',$setting->termsandconditions_clients)}}</textarea>
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">الشروط والاحكام للاعضاء</label>
-                <textarea class="form-control" required name="termsandconditions" id="" cols="30" rows="3" placeholder="الشروط والاحكام">{{old('phone_num',$setting->termsandconditions_freelancers)}}</textarea>
+                <textarea class="form-control" required name="termsandconditions_freelancers" id="" cols="30" rows="3" placeholder="الشروط والاحكام">{{old('phone_num',$setting->termsandconditions_freelancers)}}</textarea>
               </div>
            
             

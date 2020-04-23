@@ -6,7 +6,7 @@ use App\SocialNetwork;
    
 ?>
 <footer class="footer">
-    <div class="footer_top" style="padding-top: 5px;padding-bottom: 0px;">
+    <div>
         {{-- <div class="container">
             <div class="row">
                 <div class="col-xl-3 col-md-6 col-lg-3 ">

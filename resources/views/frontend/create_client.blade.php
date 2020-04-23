@@ -8,7 +8,7 @@
         <div class="row no-gutters justify-content-center">
            
             <div class="col-lg-6">
-                <div class="book_Form" style="background-image: linear-gradient(#6b2b06,#6b2b06);">
+                <div class="book_Form" style="background-image: linear-gradient(#b2967d,#6b2b06);">
                     <h3 class="text-center"> استمارة تسجيل البيانات </h3>
                     
                     <div class="row ">

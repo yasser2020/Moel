@@ -4,7 +4,7 @@ namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\freelancerAdavantages;
+use App\FreelancerAdavantages;
 
 class FreelancersAdvantagesController extends Controller
 {
@@ -43,7 +43,7 @@ class FreelancersAdvantagesController extends Controller
         $request->validate([
             'name'=>'required',
         ]);
-        $freelancerAdavantages=freelancerAdavantages::create($request->all());
+        $freelancerAdavantages=FreelancerAdavantages::create($request->all());
         session()->flash('success','تم إضافة البيانات بنجاح');
         return redirect()->route('dashboard.freelancerAdvantage.index');
     }

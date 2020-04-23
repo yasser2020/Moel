@@ -1,6 +1,6 @@
-@include('patiats._head')   
-@include('patiats._header')
-<div class="container" style="background-color: black">
+
+<div class="gallery_area2 bg" >
+<div class="container">
     
         @if($offers!=null)
          @if($offers->count()>0)
@@ -10,7 +10,7 @@
                      <hr style="font-weight: bold">
                      @if($offer->path!=null)
                             @foreach ($offer->path as $item)
-                            <div class="single_gallery">
+                            <div class="single_gallery" style="display: inline-flex">
                             <a class="popup-image" href="{{$offer->getImage($item)}}" ></a>
                             <img src="{{$offer->getImage($item)}}" > 
                             </div>
@@ -20,5 +20,6 @@
              @endforeach
 @endif
 @endif
+</div>
 </div>
 
