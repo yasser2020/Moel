@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\FreelanceService;
 use Illuminate\Support\Facades\Auth;
-
+use App\Settings;
 class HomeController extends Controller
 {
     /**
@@ -19,8 +19,9 @@ class HomeController extends Controller
     }
     public function index(Request $request)
     {
-        $services=FreelanceService::where('done','0')->whenSearch($request->search)->paginate(10);;
-        return view('home',compact('services'));
+        $services=FreelanceService::where('done','0')->whenSearch($request->search)->paginate(10);
+        $setting=Settings::findOrFail(1);
+        return view('home',compact('services','setting'));
     }
 
     public function acceptService($id,$type)

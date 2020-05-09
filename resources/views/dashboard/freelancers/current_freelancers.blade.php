@@ -105,7 +105,7 @@
                        </form>
                        <form action="{{route('dashboard.freelancers.destroy',$freelancer->id)}}" style="display:inline-block" method="post">
                         @csrf
-                        @method('get')
+                        @method('delete')
                         @if (auth()->user()->hasPermission('delete_freelancers'))
                         <button type="submit" class="btn btn-danger btn-sm delete_freelancer"><i class="fa fa-trash"> حذف</i></button>
                             @else

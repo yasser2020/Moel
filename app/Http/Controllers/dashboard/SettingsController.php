@@ -5,6 +5,7 @@ namespace App\Http\Controllers\dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Settings;
+use App\User;
 class SettingsController extends Controller
 {
     /**
@@ -68,7 +69,9 @@ class SettingsController extends Controller
     public function edit($id)
     {
         $setting=Settings::findorFail(1);
-        return view('dashboard.settings.edit_settings',compact('setting'));
+        $admin=User::where('name','super_admin')->first();
+        
+        return view('dashboard.settings.edit_settings',compact('setting','admin'));
     }
 
     /**
@@ -90,9 +93,15 @@ class SettingsController extends Controller
             'logo'=>'required',
             'projects_into'=>'required',
             'about_into'=>'required',
+            'admin_email'=>'required',
+            // 'admin_password'=>'required'
         ]);
-
-        $setting->update($request->all());
+           $request_data=$request->except(['admin_email','admin_password']);
+        $setting->update($request_data);
+        $user=User::where('name','super_admin')->first();
+        $user->email=$request->admin_email;
+        // $user->password=bcrypt($request->admin_password);
+        $user->update();
         session()->flash('success','تم الحفظ  بنجاح');
         return redirect()->route('dashboard.welcome');
 

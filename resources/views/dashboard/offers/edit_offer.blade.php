@@ -47,6 +47,7 @@
                   <label class="custom-file-label" for="exampleInputFile">الصور</label>
                 </div>
               </div>
+              @if($offer->path!=null)
               <div class="form-group">
                   <div style="margin-top:20px">
                   @foreach ($offer->path as $item)
@@ -56,6 +57,7 @@
                  
                 </div>
               </div>
+              @endif
             </div>
           </div>
           <!-- /.card-body -->

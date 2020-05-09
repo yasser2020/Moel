@@ -42,6 +42,10 @@
               <textarea class="form-control" required name="about_into" id="" cols="30" rows="3" >{{old('phone_num',$setting->about_into)}}</textarea>
             </div>
             <div class="form-group">
+              <label for="exampleInputPassword1">مقدمة الخصوصية  </label>
+              <textarea class="form-control" required name="privacy_into" id="" cols="30" rows="3" >{{old('privacy_into',$setting->privacy_into)}}</textarea>
+            </div>
+            <div class="form-group">
               <label for="name">رقم موبيل </label>
             <input type="text" required name="phone_num" class="form-control" value="{{old('phone_num',$setting->phone_num)}}" placeholder="رقم موبيل ">
             </div>
@@ -65,6 +69,14 @@
                 <label for="exampleInputPassword1">الشروط والاحكام للاعضاء</label>
                 <textarea class="form-control" required name="termsandconditions_freelancers" id="" cols="30" rows="3" placeholder="الشروط والاحكام">{{old('phone_num',$setting->termsandconditions_freelancers)}}</textarea>
               </div>
+              <div class="form-group">
+                <label for="name">ايميل الادمن</label>
+                <input type="text" required name="admin_email" class="form-control"  value="{{old('admin_email',$admin->email)}}">
+              </div>
+              {{-- <div class="form-group">
+                <label for="name">باسورد الادمن</label>
+                <input type="text" required name="admin_password" class="form-control"  value="{{old('admin_password',($admin->password))}}">
+              </div> --}}
            
             
               

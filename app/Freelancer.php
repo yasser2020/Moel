@@ -69,7 +69,7 @@ class Freelancer extends Model
     {
        if($this->clients_record<10)
        return 'عضو عادى';
-       else if($this->clients_record>10 && $this->clients_record<=20)
+       else if($this->clients_record>=10 && $this->clients_record<20)
        return 'عضو مميز';
        else
        return 'عضو راقى';

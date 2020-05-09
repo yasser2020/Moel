@@ -1,5 +1,4 @@
 @if (session('success'))
-
     <script>
         new Noty({
             type: 'info',

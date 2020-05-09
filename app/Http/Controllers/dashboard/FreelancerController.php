@@ -303,7 +303,15 @@ class FreelancerController extends Controller
                               
               }
         }
-        $user=User::where('identifcation_no',($freelancer->identifcation_no));
+        //identifcation_no
+        if($freelancer->done==1)
+        {
+            $user=User::where('email',($freelancer->identifcation_no))->first();
+        }
+        else{
+            $user=null;
+        }
+        
         if($user!=null)
         $user->forceDelete();
         $freelancer->forceDelete();

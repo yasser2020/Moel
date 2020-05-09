@@ -22,7 +22,14 @@ class WelcomeController extends Controller
     public function about()
     {
         $setting=Settings::findOrFail(1);
-        return view('frontend.about',compact('setting'));
+        $offers=Offers::first();
+        return view('frontend.about',compact('setting','offers'));
+    }
+    public function privacy()
+    {
+        $setting=Settings::findOrFail(1);
+        $offers=Offers::first();
+        return view('frontend.privacy',compact('setting','offers'));
     }
     public function createClient()
     {
@@ -47,7 +54,7 @@ class WelcomeController extends Controller
 
     public function projects()
     {
-        $projects=Project::first();
+        $projects=Project::first()->paginate(3);
         $setting=Settings::findOrFail(1);
         return view('frontend.projects',compact('projects','setting'));
     }

@@ -10,6 +10,7 @@ group(function(){
     Route::resource('projects','ProjectController')->except('show');
     //Offers Route
     Route::resource('offers','OffersController')->except('show');
+    Route::delete('remove_image/{id}','OffersController@remove_images')->name('remove_offer_image');
     Route::resource('settings','SettingsController')->except('show');
     //Clients Route
     Route::resource('clients','ClientController');

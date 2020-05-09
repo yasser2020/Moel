@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Freelancers </h1>
+            <h1 class="m-0 text-dark">Freelancers المحظورين</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-left">
@@ -21,7 +21,7 @@
     <div class="card card-primary">
       <div class="card-header">
         
-        <h3 class="card-title text-center">Freelancers</h3>
+        <h3 class="card-title text-center">Freelancers المحظورين</h3>
      
       </div>
       </div>

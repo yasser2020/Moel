@@ -33,7 +33,7 @@ class Client extends Model
     {
        if($this->clients_record<10)
        return 'عميل عادى';
-       else if($this->clients_record>10 && $this->clients_record<=20)
+       else if($this->clients_record>=10 && $this->clients_record<20)
        return 'عميل مميز';
        else
        return 'عميل راقى';

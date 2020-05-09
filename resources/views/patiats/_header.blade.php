@@ -14,7 +14,7 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         
                                     <p style="font-weight: bold;font-size: 14pt;color: yellow">  {{auth()->user()->name}}</p>
-
+                                    
                                     </a>
                                     @if (auth()->user()->hasRole('freelancer'))
                                     <?php
@@ -29,6 +29,10 @@
                                         @if (auth()->user()->hasRole('super_admin')||auth()->user()->hasRole('administrator'))
                                     <a class="dropdown-item" href="{{route('dashboard.welcome')}}"> <i class="fa fa-tachometer"></i> لوحة التحكم </a>
                                       @endif
+                                      @if (auth()->user()->hasRole('freelancer') || auth()->user()->hasRole('client') )
+
+                                      <a href="{{route('editUser',Auth::user()->email)}}" class="btn btn-primary" >تعديل الملف الشخصى</a>
+                                       @endif
                                       <a  style="color: #17a2b8" class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();
                                       document.getElementById('logout-form').submit();">
                                        <i class="fa fa-sign-out"></i>
@@ -37,6 +41,7 @@
                                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                  
                                     </div>
                                   </li>
 

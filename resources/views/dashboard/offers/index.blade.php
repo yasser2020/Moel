@@ -69,7 +69,21 @@
                      <a href="" disabled="" class="btn btn-warning btn-sm"><i class="fa fa-edit"> تعديل</i></a>
  
                     @endif
-                        
+              
+                        @if (auth()->user()->hasPermission('delete_offers'))
+                        @if($offer->path!=null)
+                        <form action="{{route('dashboard.remove_offer_image',$offer->id)}}" style="display:inline-block" method="post">
+                          @csrf
+                          @method('delete')
+                          @if (auth()->user()->hasPermission('delete_offers'))
+                          <button type="submit" class="btn btn-danger btn-sm delete_offer"><i class="fa fa-trash"> حذف الصورة</i></button>
+                              @else
+                              <button type="submit" disabled class="btn btn-danger btn-sm delete"><i class="fa fa-trash"> Delete</i></button>
+                           @endif
+                          @endif
+                          </form>
+                        @endif
+                 
                         <form action="{{route('dashboard.offers.destroy',$offer->id)}}" style="display:inline-block" method="post">
                        @csrf
                        @method('delete')

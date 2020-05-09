@@ -15,6 +15,7 @@
      <main class="app-content">
       @include('dashboard.partials._session')
       @yield('content')
+   
      </main>
       
 

@@ -1,44 +1,61 @@
-@include('patiats._head')   
-@include('patiats._header')
+@include('patiats._head') 
+@section('background','bg')
+@include('patiats._nav')  
+ <!--Hero intro-->
+ <div id="wrap-inner" >
+    <div class="container">
+       <div class="mt-4 text-center">
+           <div class="title">
+                 <h5 class="title-heading">تسجيل الدخول</h5>
+                 <span class="heading-style">
+                     <i></i>
+                     <i></i>
+                     <i></i>
+                 </span>
+                
+             </div>
+       </div>
+       <div class="row">
+        <div class="col-md-2"></div>   
+       <div class="col-md-8">
+         <div class="form-content ">
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                 <div class="form-tab">
 
-<div class="Reservation_area bg">
-   
-    <div class="container p-0" style="direction: rtl">
-        
-        <div class="row no-gutters justify-content-center">
-           
-            <div class="col-lg-6">
-                <div class="book_Form" style="background-image: linear-gradient(#b2967d,#6b2b06);">
-                    <h3 class="text-center">تسجيل دخول</h3>
-                    
-                    <div class="row ">
-                        <div class="col-lg-12">
-                            <form method="POST" action="{{ route('login') }}">
-                                @csrf
-                                <div class="input_field mb_15">
-                                    <input type="text" name="email" required placeholder="الايميل او رقم الهوية" style="font-weight: bold">
-                                </div>
-                                <div class="input_field mb_15">
-                                    <input type="password" name="password" required placeholder="الباسورد" style="font-weight: bold">
-        
-                                </div>
-                                <div class="input_field mb_15 d-flex">
-                                    <label for="" class="mt-10" style="font-weight: bold;color: wheat;margin-left: 10px">تذكرنى</label>
+                     <div class="tab-content">
+                         <div class="tab-pane   active show" id="tab_a">
+                             <div>
+                                 
+                                 <div class="styled-input">
+                                     <input type="text"  name="email" required >
+                                     <label>الايميل او رقم الهويه</label>
+                                 </div>      
+                                
+                                 <div class="styled-input">
+                                     <input type="password"  name="password" required>
+                                     <label>الرقم السري</label>
+                                 </div> 
 
-                                    <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} style="width:20px;" >
-                                </div>
-                                <div class="input_field mb_15 text-center">
-                                <button type="submit" class="boxed-btn3 myButton" style="font-weight: bold;">الدخول</button>        
-                                </div>
-                            </form>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
-</html>
-{{-- @include('patiats._footer') --}}
+                                 <div class="checkbox mt-5 mb-4">
+                                     <input type="checkbox"  name="check">
+                                     <label>تذكرني</label>
+                                 </div> 
+                                 <div class="mt-3">
+                                     <button type="submit" class="btn btn-default">
+                                       تسجيل دخول
+                                     </button>
+                                 </div>
+                             </div>
+                            
+                         </div>
+
+                     </div>
+                 </div>
+             </form>
+         </div>
+       </div>
+       </div>
+   </div>
+ </div>
+@include('patiats._footer')  

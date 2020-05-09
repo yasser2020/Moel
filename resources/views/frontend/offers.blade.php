@@ -1,25 +1,47 @@
+ <!--Study description-->
+ @if($offers!=null)
+ @if($offers->count()>0)
+ <section class="mt-50" id="stdyDesc">
+        <div class="container">
+          @foreach ($offers->get() as $offer)
+            <div class="steps">
+                <div class="title">
+                <h5 class="title-heading">{{$offer->name}}</h5>
+                    <span class="heading-style">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </span>
+                </div>
+                @if($offer->path!=null)
+                     @foreach ($offer->path as $item)
+                      <div class="mt-5">
+                          <div class="row">
+                              <div class="col-sm-6 col-md-3">
+                                  <div class="item itemBlock">
+                                    <div class="item-block">
+                                      <a title="item name"><img src="{{$offer->getImage($item)}}"></a>
+                                      <div class="description p-2">
+                                        <div class="mb-2 item-link">
+                                              <a >
+                                              {{$offer->description}}
+                                              </a>
+                                          </div>
+                                    
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      @endforeach
+                      @else
+                      <h6 class="title-heading">{{$offer->description}}</h6>
+                      @endif
 
-<div class="gallery_area2 bg" >
-<div class="container">
-    
-        @if($offers!=null)
-         @if($offers->count()>0)
-             @foreach ($offers->get() as $offer)
-             <div class="container">
-             <h3 class="text-center" style="font-weight: bold;color: white">{{$offer->description}}</h3>
-                     <hr style="font-weight: bold">
-                     @if($offer->path!=null)
-                            @foreach ($offer->path as $item)
-                            <div class="single_gallery" style="display: inline-flex">
-                            <a class="popup-image" href="{{$offer->getImage($item)}}" ></a>
-                            <img src="{{$offer->getImage($item)}}" > 
-                            </div>
-                             @endforeach
-                             @endif
             </div>
-             @endforeach
-@endif
-@endif
-</div>
-</div>
-
+            @endforeach
+        </div>
+    </section>
+    @endif
+    @endif

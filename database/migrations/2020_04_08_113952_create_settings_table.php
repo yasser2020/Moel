@@ -21,8 +21,9 @@ class CreateSettingsTable extends Migration
             $table->text('termsandconditions_clients');
             $table->text('termsandconditions_freelancers');
             $table->string('account_num');
-            $table->string('projects_into');
-            $table->string('about_into');
+            $table->text('projects_into');
+            $table->text('about_into');
+            $table->text('privacy_into');
             $table->string('logo');
             $table->timestamps();
         });

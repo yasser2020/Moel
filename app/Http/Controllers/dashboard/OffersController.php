@@ -132,7 +132,23 @@ class OffersController extends Controller
             $done=Storage::disk('local')->delete('public/images/'.$item);                
         }
         $offer->delete();
-        session()->flash('success','تم حذف المشروع بنجاح');
+        session()->flash('success','تم حذف العرض بنجاح');
         return redirect()->route('dashboard.offers.index');
     }//end of destroy
+
+    public function remove_images($id)
+    {
+
+        $id=(int)$id;
+        $offer=Offers::findOrFail($id);
+        if($offer->path !=null){
+            foreach ($offer->path as $item)
+                $done=Storage::disk('local')->delete('public/images/'.$item);                
+            }
+            $offer->path=null;
+            $offer->save();
+            session()->flash('success','تم حذف صورة العرض بنجاح');
+        return redirect()->route('dashboard.offers.index');
+
+    }
 }

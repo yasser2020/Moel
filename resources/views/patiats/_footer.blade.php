@@ -1,3 +1,4 @@
+<!--Footer-->
 <?php
 use App\Settings;
 use App\SocialNetwork;
@@ -5,164 +6,87 @@ use App\SocialNetwork;
    $socail_networks=SocialNetwork::get();
    
 ?>
-<footer class="footer">
-    <div>
-        {{-- <div class="container">
-            <div class="row">
-                <div class="col-xl-3 col-md-6 col-lg-3 ">
-                    <div class="footer_widget">
-                        <div class="footer_logo">
-                            <a href="#">
-                                <img src="img/footer_logo.png" alt="">
-                            </a>
-                        </div>
-                        <p>5th flora, 700/D kings road, green <br> lane New York-1782 <br>
-                            <a href="#">+10 367 826 2567</a> <br>
-                            <a href="#">contact@carpenter.com</a>
-                        </p>
-                        <p>
-
-
-
-                        </p>
-                        <div class="socail_links">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="ti-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="ti-twitter-alt"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-pinterest"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-youtube-play"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6 col-lg-4 offset-xl-1">
-                    <div class="footer_widget">
-                        <h3 class="footer_title">
-                            Useful Links
-                        </h3>
-                        <ul>
-                            <li><a href="#">Menu</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#"> Blog</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="footer_widget">
-                        <h3 class="footer_title">
-                            Subscribe
-                        </h3>
-                        <form action="#" class="newsletter_form">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit">Subscribe</button>
-                        </form>
-                        <p class="newsletter_text">Esteem spirit temper too say adieus who direct esteem esteems
-                            luckily.</p>
-                    </div>
-                </div>
+<footer class="mt-5" id="contact">
+    <div class="container">
+        <div class="row footer-cols">
+            <div class="col-md-4 col-sm-6 col-cont">
+                <a>
+                    <h5>من نحن</h5>
+                <p>{{$setting->about_into}}</p>
+                </a>
+            </div>
+            
+            <div class="col-md-4 col-sm-6 col-cont">
+                <h5>وسائل التواصل</h5>
+                <ul class="initial">
+                    <li>رقم الواتساب :
+                    <span>{{$setting->whats_num}}</span>
+                    </li>
+                    <li>تليفون
+                    <span>{{$setting->phone_num}}</span>
+                    </li>
+                    <li>
+                    ايميل : 
+                    <span>{{$setting->email}}</span> 
+                    </li>
+                    @if ($socail_networks!=null)
+                    <li>
+                    @foreach ($socail_networks as $social_network)
+                    <a href="{{$social_network->link}}" title="faceitem"><i class="fa fa-{{$social_network->site}}"></i></a>
+                    @endforeach
+                    </li>
+                    @endif
+                </ul>
+            </div>
+            <div class="col-md-4 col-sm-6 col-cont">
+                <a>
+                <h5>{{$setting->logo}}</h5>
+                    <img src="{{asset('assets/images/logo.jpg')}}">
+                </a>
             </div>
         </div>
-    </div> --}}
-    <div class="container-fluid">
-    <div class="copy-right_text">
-        <div class="container">
-            <div class="footer_border"></div>
-            <div class="row">
-                <div class="col-md-12">
-                    <p class="text-center ff">للتواصل معنا</p>
-                    <div class="justify-content-center d-flex">
-                        <p class="ff" style="padding: 10px"><i class="fa fa-phone"></i> {{$setting->phone_num}}</p>
-                        <p class="ff" style="padding: 10px"><i class="fa fa-mobile"></i> {{$setting->whats_num}}</p>
-                        <p class="ff" style="padding: 10px"><i class="fa fa-google"></i> {{$setting->email}}</p>
-                        @if ($socail_networks!=null)
-                        @foreach ($socail_networks as $social_network)
-                        <p class="ff" style="padding: 10px"><i class="fa fa-{{$social_network->site}}"></i> {{$social_network->link}}</p>  
-                        @endforeach
-                            
-                        @endif
-                       
-                    </div>
-                    <p class="copy_right text-center">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="ff">{{$setting->logo}}</i>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
     </div>
 </footer>
-<!-- footer_end  -->
 
-<!-- JS here -->
-<script src="js/vendor/modernizr-3.5.0.min.js"></script>
-<script src="js/vendor/jquery-1.12.4.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/isotope.pkgd.min.js"></script>
-<script src="js/ajax-form.js"></script>
-<script src="js/waypoints.min.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
-<script src="js/imagesloaded.pkgd.min.js"></script>
-<script src="js/scrollIt.js"></script>
-<script src="js/jquery.scrollUp.min.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/gijgo.min.js"></script>
-<script src="js/nice-select.min.js"></script>
-<script src="js/jquery.slicknav.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/plugins.js"></script>
+</div><!-- wrap-content -->
 
 
+</div>
 
-<!--contact js-->
-<script src="{{asset('js/contact.js')}}"></script>
-<script src="{{asset('js/jquery.ajaxchimp.min.js')}}"></script>
-<script src="{{asset('js/jquery.form.js')}}"></script>
-<script src="{{asset('js/jquery.validate.min.js')}}"></script>
-<script src="{{asset('js/mail-script.js')}}"></script>
+<!--Js-->
+<script src="{{asset('assets/roots/js/jquery-3.3.1.min.js')}}"></script>
+<!-- Bootstrap JS -->
+<script src="{{asset('assets/roots/js/bootstrap.min.js')}}"></script>
+
+<!-- owl carousel -->
+<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+'use strict';
+var $overviewSlide = $('.owl-carousel')
+if ($overviewSlide.length > 0) {
+$overviewSlide.owlCarousel({
+loop: true,
+center: true,
+margin: 0,
+items: 1,
+nav: false,
+dots: true,
+dotsContainer: '.dots'
+})
+$('.owl-dot').on('click', function () {
+$(this).addClass('active').siblings().removeClass('active');
+$overviewSlide.trigger('to.owl.carousel', [$(this).index(), 300000]);
+});
+}
 
 
-<script src="js/main.js"></script>
-
+});    
+</script>    
+<!-- functions-->
+<script src="assets/js/functions.js"></script>
 <script>
-    $('#datepicker').datepicker({
-        iconsLibrary: 'fontawesome',
-        icons: {
-            rightIcon: '<span class="fa fa-calendar-o"></span>'
-        }
-    });
-    $('#datepicker2').datepicker({
-        iconsLibrary: 'fontawesome',
-        icons: {
-            rightIcon: '<span class="fa fa-calendar-o"></span>'
-        }
-
-    });
     $.ajaxSetup({
       headers:{
         'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
@@ -174,5 +98,4 @@ use App\SocialNetwork;
 
 </script>
 </body>
-
 </html>

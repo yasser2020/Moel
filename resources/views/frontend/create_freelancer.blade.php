@@ -1,172 +1,201 @@
-@include('patiats._head')   
-@include('patiats._header')
+@include('patiats._head') 
+@section('background','bg')
+@include('patiats._nav') 
+<div id="wrap-inner" >
+  <div class="container">
+     <div class="mt-4 text-center">
+         <div class="title">
+               <h5 class="title-heading">أستمارة تسجيل البيانات</h5>
+               <span class="heading-style">
+                   <i></i>
+                   <i></i>
+                   <i></i>
+               </span>
+              
+           </div>
+     </div>
+     <div class="row">
+      <div class="col-md-2"></div>   
+     <div class="col-md-8">
+       <div class="form-content ">
+        @include('dashboard.partials._errors')
+        <form method="POST" action="{{route('storeFreelancer')}}" enctype="multipart/form-data">
+            @csrf
+               <div class="form-tab">
 
-<div class="Reservation_area bg">
-   
-    <div class="container p-0" style="direction: rtl">
-        
-        <div class="row no-gutters justify-content-center">
-           
-            <div class="col-lg-6">
-                <div class="book_Form" style="background-image: linear-gradient(#b2967d,#6b2b06);">
-                    <h3 class="text-center"> استمارة تسجيل البيانات </h3>
-                    
-                    <div class="row ">
-                        <div class="col-lg-12">
-                          @include('dashboard.partials._errors')
-                        <form method="POST" action="{{route('storeFreelancer')}}" enctype="multipart/form-data">
-                                @csrf
-
-                                <div class="input_field mb_15">
-                                <input type="text"  name="name" required value="{{old('name')}}" placeholder=" الاسم رباعى" style="font-weight: bold">
-                                </div>
-
-                                <div class="input_field mb_15 d-flex">
-                                  <label for="" class="mt-10" style="font-weight: bold;color: white;margin-right: 10px;margin-left:10px;font-size: 12pt">الجنس</label>
-                                  <input type="radio" name="sex" required style="width:20px;" value="m" >
-                                  <label for="" class="mt-10"  style="font-weight: bold;color: white;margin-right: 10px;margin-left: 10px;font-size: 12pt">ذكر</label>
-                                  <input type="radio" class="mr-10" name="sex" required style="width:20px;" value="f" >
-                                  <label for="" class="mt-10" style="font-weight: bold;color: white;margin-right: 10px;font-size: 12pt">انثى</label>
-                              </div>
-                              <div class="input_field mb_15">
-                              <input type="text" required name="identifcation_no" class="form-control" min="10" value="{{old('identifcation_no')}}" placeholder="رقم الهوية او الاقامة">
-                            </div>
-                            <div class="input_field mb_15 d-flex" >
-                              <label for="" class="mt-10" style="font-weight: bold;color: white;margin-right: 10px;margin-left:10px;font-size: 12pt">الحالة الاجتماعية</label>
-                              <input type="radio" name="marital_status" required  style="width:20px;" value="married" >
-                              <label for="" class="mt-10"  style="font-weight: bold;color: white;margin-right: 10px;margin-left: 10px;font-size: 12pt">متزوج</label>
-                              <input type="radio" class="mr-10" name="marital_status" required style="width:20px;" value="single" >
-                              <label for="" class="mt-10" style="font-weight: bold;color: white;margin-right: 10px;margin-left: 10px;font-size: 12pt">اعزب</label>
-                              {{-- <input type="radio" class="mr-10" name="marital_status" required style="width:20px;" value="مرفق عام" >
-                              <label for="" class="mt-10"  style="font-weight: bold;color: white;margin-right: 10px;margin-left: 10px;font-size: 12pt">ارمل</label> --}}
-                          </div> 
-                          <div class="input_field mb_15">
-                          <input type="text" required name="date_of_birth" date_formate='yyyy/mm/dd'    class="form-control" value="{{old('date_of_birth')}}" placeholder="تاريخ الميلاد" onfocus="(this.type='date')" style="font-weight: bold" >
-                        </div>
-                              <div class="input_field mb_15">
-                                <input type="text"  name="nationality" required value="{{old('nationality')}}" class="form-control" placeholder="الجنسية" style="font-weight: bold">
-                              </div>
-
-                              <div class="input_field mb_15">
-                                <input type="text" name="city" required value="{{old('city')}}" class="form-control" placeholder="المدينة" style="font-weight: bold">
-                              </div>
-
+                   <div class="tab-content">
+                       <div class="tab-pane   active show" id="tab_a">
+                           <div>
+                               
+                               <div class="styled-input">
+                                   <input type="text"  name="name"  value="{{old('name')}}" required  >
+                                   <label>الأسم الرباعي</label>
+                               </div>      
                               
-                              <div class="input_field mb_15">
-                                <input type="text" name="address" required  value="{{old('address')}}" class="form-control" placeholder="العنوان" style="font-weight: bold">
-                              </div>
+                               <div class="checkbox mt-5 mb-4">
+                                 <label class="mr-3">النوع :</label>
+                                   <input type="radio"  name="sex"  value="m" required>
+                                   <label class="mr-3">ذكر</label>
+                                   <input type="radio"  name="sex"  value="f" required>
+                                   <label>أنثى</label>
+                               </div>
 
-                              
-                              <div class="input_field mb_15">
-                                <input type="text" name="phone_num" required value="{{old('phone_num')}}" class="form-control" placeholder="رقم الجوال" style="font-weight: bold">
-                              </div>
-                              
-                              <div class="input_field mb_15">
-                                <input type="text" name="whats_num" required value="{{old('whats_num')}}" class="form-control" placeholder="رقم الواتس" style="font-weight: bold">
-                              </div>
-                              
-                              <div class="input_field mb_15">
-                                <input type="eamil" name="email" required value="{{old('email')}}" class="form-control" placeholder="الايميل" style="font-weight: bold">
-                              </div>
+                               <div class="styled-input">
+                                   <input type="number"  name="identifcation_no"  value="{{old('identifcation_no')}}" >
+                                   <label>رقم الهويه او البطاقة</label>
+                               </div> 
 
-                              <div class="input_field mb_15">
-                              <input type="text" required name="qualification" value="{{old('nationality')}}" class="form-control" placeholder="المؤهل الدراسى" style="font-weight: bold">
-                              </div>
+                               <div class="checkbox mt-5 mb-4">
+                                 <label class="mr-3">الحالة الأجتماعية</label>
+                                   <input type="radio"  name="marital_status"  value="married" required>
+                                   <label class="mr-3">متزوج</label>
+                                   <input type="radio"  name="marital_status" value="single" required>
+                                   <label>أعزب</label>
+                               </div>
 
-                              <div class="input_field mb_15">
-                              <input type="number" required name="graduation_year" value="{{old('graduation_year')}}" class="form-control" placeholder="سنة التخرج" style="font-weight: bold">
+                               <div class="styled-input">
+                                   <input type="date"  name="date_of_birth" value="{{old('date_of_birth')}}" required  >
+                                   <label>تاريخ الميلاد</label>
+                               </div> 
+
+                               <div class="styled-input">
+                                   <input type="text"  name="nationality" value="{{old('nationality')}}" required >
+                                   <label>الجنسية</label>
+                               </div>
+                               <div class="styled-input">
+                                   <input type="text"  name="city" value="{{old('city')}}" required  >
+                                   <label>المدينة</label>
+                               </div>
+                               <div class="styled-input">
+                                <input type="text"  name="address" value="{{old('address')}}" required  >
+                                <label>العنوان</label>
                             </div>
+                               <div class="styled-input">
+                                   <input type="text"  name="phone_num" value="{{old('phone_num')}}" required >
+                                   <label>رقم الجوال</label>
+                               </div>
 
-                            <div class="input_field mb_15">
-                            <input type="text" required name="grade" value="{{old('grade')}}" class="form-control" placeholder="التقدير الدراسى (امتياز - جيد جدا)" style="font-weight: bold">
-                            </div>
+                               <div class="styled-input">
+                                   <input type="text"  name="whats_num" value="{{old('whats_num')}}" required >
+                                   <label>رقم الواتس</label>
+                               </div>
 
-                            <div class="input_field mb_15">
-                            <input type="text" required name="faculty" value="{{old('faculty')}}" class="form-control" placeholder="الجامعة او الكلية " style="font-weight: bold">
-                          </div>
-                         
-                          <div class="input_field mb_15">
-                          <input type="text" name="experince" value="{{old('experince')}}" class="form-control" placeholder=" الخبرة" style="font-weight: bold">
-                          </div>
+                               <div class="styled-input">
+                                   <input type="email"  name="email" value="{{old('email')}}"  required>
+                                   <label>الايميل</label>
+                               </div>
 
-                          <div class="input_field mb_15">
-                            <input type="text" name="hopies" value="{{old('hopies')}}" class="form-control" placeholder=" هوايات اخرى" style="font-weight: bold">
-                          </div>
-                          <div class="input_field mb_15">
-                          <input type="text" name="work_place" value="{{old('work_place')}}" class="form-control" placeholder=" جهة العمل ان وجد" style="font-weight: bold">
-                          </div>
+                               <div class="styled-input">
+                                   <input type="text"  name="qualification"  value="{{old('qualification')}}" required>
+                                   <label>المؤهل الدراسي</label>
+                               </div>
+                               
+                               <div class="styled-input">
+                                   <input type="text"  name="graduation_year"  value="{{old('graduation_year')}}" required>
+                                   <label>سنة التخرج</label>
+                               </div>
 
-                          <div class="input_field mb_15">
-                          <input type="text" name="work_nature" value="{{old('work_nature')}}" class="form-control" placeholder=" صفة العمل" style="font-weight: bold">
-                          </div>
+                               <div class="styled-input">
+                                   <input type="text"  name="grade" value="{{old('grade')}}" required >
+                                   <label>التقدير (امتياز - جيد جدا)</label>
+                               </div>
+                               <div class="styled-input">
+                                   <input type="text"  name="faculty" value="{{old('faculty')}}" required >
+                                   <label>الجامعة او الكلية</label>
+                               </div>
+                               <div class="styled-input">
+                                   <input type="text"  name="experince"   value="{{old('experince')}}" >
+                                   <label>الخبرة</label>
+                               </div>
+                               <div class="styled-input">
+                                   <input type="text"  name="hopies" value="{{old('hopies')}}"  >
+                                   <label>الهوايات</label>
+                               </div>
+                               <div class="styled-input">
+                                   <input type="text"  name="work_place" value="{{old('work_place')}}"  >
+                                   <label>جهة العمل ان وجد</label>
+                               </div>
+                               <div class="styled-input">
+                                   <input type="text"  name="work_nature" value="{{old('work_nature')}}"  >
+                                   <label>صفة العمل</label>
+                               </div>
+                               <div class="styled-input">
+                                   <input type="text"  name="work_time" value="{{old('work_time')}}" >
+                                   <label>وقت الدوام</label>
+                               </div>
 
-                          <div class="input_field mb_15">
-                            <input type="text" name="work_time" value="{{old('work_time')}}" class="form-control" placeholder=" وقت الدوام" style="font-weight: bold">
-                            </div>
+                               <div class="checkbox mt-5 mb-4">
+                                 <label class="mr-3">أرغب بعرض اسمي وأعمالي في الموقع</label>
+                                   <input type="radio"  name="show_work"  value="yes" required>
+                                   <label class="mr-3">أرغب</label>
+                                   <input type="radio"  name="show_work"  value="no" required>
+                                   <label>لا أرغب</label>
+                               </div>
 
-                          <div class="input_field mb_15">
-                          <div class="custom-file">
-                            <input type="file"name="cv" required value="{{old('cv')}}"    class="custom-file-input">
-                            <label class="custom-file-label text-center" style="font-weight: bold;font-size: 12pt;" >السيرة الذاتية</label>
-                          </div>
-                        </div>
-                        <div class="input_field mb_15">
-                        <div class="custom-file">
-                          <input type="file" required name="graduation_certificate" class="custom-file-input">
-                          <label class="custom-file-label text-center"  style="font-weight: bold;font-size: 12pt;"> شهادة التخرج</label>
-                        </div>
-                      </div>
-                      <div class="input_field mb_15">
-                      <div class="custom-file">
-                        <input type="file"name="confirmation_career" class="custom-file-input">
-                        <label class="custom-file-label text-center"  style="font-weight: bold;font-size: 12pt;">الاعتماد المهنى إن وجد </label>
+                               <div class="styled-input">
+                                   <input type="text"  name="how_know_us" value="{{old('how_know_us')}}" required >
+                                   <label>الجهة التي تعرفت بها علينا او اسم الشخص رباعي</label>
+                               </div>
+
+                               <div class="custom-file mt-3">
+                                 <input type="file" class="custom-file-input" name="cv" value="{{old('cv')}}"  id="validatedCustomFile" required>
+                                 <label class="custom-file-label" for="validatedCustomFile">
+                                   السيرة الذاتية
+                                 </label>
+                                 <div class="invalid-feedback">
+                                     Example invalid custom file feedback 
+                                 </div>
+                               </div>
+
+                               <div class="custom-file mt-3  ">
+                                 <input type="file" class="custom-file-input"  name="graduation_certificate" value="{{old('graduation_certificate')}}" id="validatedCustomFile2" required>
+                                 <label class="custom-file-label" for="validatedCustomFile">شهادة التخرج</label>
+                                 <div class="invalid-feedback">
+                                    Example invalid custom file feedback                                            
+                                 </div>
+                               </div>
+
+                               <div class="custom-file mt-3">
+                                 <input type="file" class="custom-file-input" id="validatedCustomFile3" name="confirmation_career">
+                                 <label class="custom-file-label" for="validatedCustomFile">الأعتماد المهني ان وجد </label>
+                                 <div class="invalid-feedback">
+                                   Example invalid custom file feedback
+                                 </div>
+                               </div>
+                               <div class="custom-file mt-3">
+                                 <input type="file" class="custom-file-input" id="validatedCustomFile4" name="picture" >
+                                 <label class="custom-file-label" for="validatedCustomFile">صورة شخصية اختياري</label>
+                                 <div class="invalid-feedback">
+                                   Example invalid custom file feedback
+                                 </div>
+                               </div>
+
+                               <div class="custom-file mt-3">
+                                 <input type="file" class="custom-file-input" id="validatedCustomFile5" name="privews_work[]" multiple >
+                                 <label class="custom-file-label" for="validatedCustomFile">نماذج اعمال</label>
+                                 <div class="invalid-feedback">Example invalid custom file feedback</div>
+                               </div>
+
+                               <p class="mt-4">رقم الحساب للاشتراك : 57357</p>
+                               <div class="alert alert-danger" role="alert">
+                                 نرجو ارفاق صورة السداد وارسالها على الايميل المسجل وسيتم تفعيل اشتراكك خلال 24 ساعة من تاريخ الارسال واعلامكم بذلك خلال البريد الالكتروني المسجل حيث يمكنكم الدخول بعدها لمشاهدة العروض عن طريق الدخول للموقع من خلال اليوزرنيم والباسورد( رقم الهوية – ورقم الجوال ).
+
+                               </div>
+                               <div class="mt-3">
+                                   <button type="submit" class="btn btn-default">
+                                     حفظ
+                                   </button>
+                               </div>
+                           </div>
+                          
                        </div>
-                      </div>
 
-                      <div class="input_field mb_15">
-                      <div class="custom-file">
-                        <input type="file"name="picture" class="custom-file-input">
-                        <label class="custom-file-label text-center" style="font-weight: bold;font-size: 12pt;" >صورة شخصية (اختيارى)</label>
-                      </div>
-                    </div>
-
-                    <div class="input_field mb_15">
-                    <div class="custom-file">
-                      <input type="file"name="privews_work[]" multiple class="custom-file-input">
-                      <label class="custom-file-label text-center" style="font-weight: bold;font-size: 12pt;" >نماذج اعمال</label>
-                    </div>
-                  </div>
-
-                  <div class="input_field mb_15 d-flex">
-                    <label for="" class="mt-10" style="font-weight: bold;color: white;margin-right: 10px;margin-left:10px;font-size: 12pt;font-weight: bold">ارغب بعرض اسمى واعمالى فى الموقع</label>
-                    <input type="radio" name="show_work" required  style="width:20px;" value="yes" >
-                    <label for="" class="mt-10"  style="font-weight: bold;color: white;margin-right: 10px;margin-left: 10px;font-size: 12pt">ارغب</label>
-                    <input type="radio" class="mr-10" name="show_work" required style="width:20px;" value="no" >
-                    <label for="" class="mt-10" style="font-weight: bold;color: white;margin-right: 10px;margin-left: 10px;font-size: 12pt">لا ارغب</label>  
-                </div> 
-                <div class="input_field mb_15">
-                  <input type="texthow_know_us" required value="{{old('how_know_us')}}" name="how_know_us" class="form-control" placeholder="الجهة التى تعرفت بها علينا او اسم الشخص رباعيا" style="font-weight: bold">
-                </div>  
-                <div class="input_field mb_15 d-flex">
-                  <p style="color: white;font-weight: bold" class="text-center">رقم الحساب للاشتراك : {{$setting->account_num}}</p>
-                  </div>
-                <div class="input_field mb_15">
-                <p style="background:red;color: white" class="text-center">نرجو ارفاق صورة السداد وارسالها على الايميل المسجل وسيتم تفعيل اشتراكك خلال 24 ساعة من تاريخ الارسال واعلامكم بذلك خلال البريد الالكتروني المسجل حيث يمكنكم الدخول بعدها لمشاهدة العروض عن طريق الدخول للموقع من خلال اليوزرنيم والباسورد( رقم الهوية    – ورقم الجوال ).</p>
-                </div>
-                                <div class="input_field mb_15 text-center">
-                                <button type="submit" class="myButton" style="font-weight: bold;background: #bfa58b">حفظ</button>        
-                                </div>
-                            </form>
-                        </div>
-                        
-                        
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                   </div>
+               </div>
+           </form>
+       </div>
+     </div>
+     </div>
+ </div>
 </div>
-</body>
-</html>
-{{-- @include('patiats._footer') --}}
+@include('patiats._footer')
